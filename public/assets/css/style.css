@@ -1,9 +1,50 @@
-.lx-column{
-  background-color: black;
-  width: 250px;
-  height: 250px;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: minhaFonte;
 }
 
-.lx-card {
-  background-color: white;
+
+:root{
+  --color-green: #528265;
+  --color-gray: #798da3;
+  --color-white: #fff;
+}
+
+@font-face {
+  font-family: 'minhaFonte';
+  src: url('../fonts/open-sasn/OpenSans-Regular.ttf');
+}
+.conteudo{
+  padding-top: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.hr {
+  border: 0.5rem solid var(--color-green);
+  width: 100%;
+  padding: 0;
+}
+
+.login {
+  display: inline-flex;
+  float: right;
+}
+
+.entrar {
+  border: 0.3rem solid #528265;
+  border-radius: 2rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.cadastrar {
+  border: 0.3rem solid var(--color-green);
+  border-radius: 40px;
+  background-color: var(--color-green);
+  color: var(--color-white);
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
