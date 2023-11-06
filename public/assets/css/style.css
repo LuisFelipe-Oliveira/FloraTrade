@@ -31,13 +31,22 @@
   margin-top: 0.5rem;
 }
 .hr-gray {
-  border: 0.5rem solid var(--color-gray);
+  border: 0.3rem solid var(--color-gray);
   width: 100%;
   padding: 0;
-  margin-top: 0.5rem;
+  /* margin-top: 0.5rem; */
 }
 
 /* header */
+
+.header {
+  padding-bottom: 1rem;
+}
+
+.logo img{
+  height: 5rem;
+  width: 20rem;
+}
 
 .btn-login {
   display: inline-flex;
@@ -61,8 +70,6 @@
   padding: 0.3em 2em;
   background-color: var(--color-green);
   color: var(--color-white);
-  padding-right: 2rem;
-  padding-left: 2rem;
 }
 
 .btn-entrar:hover {
@@ -70,8 +77,6 @@
   border-radius: 3rem;
   background-color: var(--color-green);
   color: var(--color-white);
-  padding-right: 2rem;
-  padding-left: 2rem;
   /* margin: 0; */
 }
 
@@ -87,7 +92,7 @@
 .conteudo{
   display: flex;
   margin: 3rem;
-
+  gap: 1.5rem;
   justify-content: space-around;
 }
 
@@ -97,7 +102,7 @@
 }
 
 .card-esquerdo h1{
-  font-size: 3.7rem;
+  font-size: 3rem;
   color: var(--color-green);
 }
 
@@ -143,9 +148,6 @@
 }
 
 /* card direito */
-.card-direito{
-
-}
 
 .card-direito img{
   height: 30rem;
@@ -153,3 +155,14 @@
   border-radius: 3rem;
 }
 
+
+
+.conteudo-02 {
+  background-color: var(--color-green);
+  padding: 5rem;
+}
+
+.content-info p {
+  color: var(--color-white);
+  font-size: 1.4rem;
+}
