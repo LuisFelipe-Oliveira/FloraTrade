@@ -11,20 +11,16 @@
 
 <body>
   <div class="conteudo">
-    <div class="lx-container-80">
-      <div class="lx-row">
-        <div class="lx-column">
-          <div class="det-left">
-            <div class="lx-row">
-              <div class="lx-column is-4">
-                <img src="assets\imgs\Logo.png" alt="Logo Floratrade">
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="lx-container-100">
+      <div class="lx-column is-3 logo">
+        <img src="assets/imgs/Logo.png" alt="">
+      </div>
+
+      <div class="button">
+        <p class="entrar">Entrar</p>
+        <p class="cadastrar">Cadsatrar</p>
       </div>
     </div>
-  </div>
 </body>
 
 </html>
