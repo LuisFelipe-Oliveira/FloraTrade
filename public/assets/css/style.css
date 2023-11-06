@@ -1,15 +1,14 @@
+:root{
+  --color-green: #528265;
+  --color-gray: #384552;
+  --color-white: #fff;
+  --color-light-gray:#c9d3dd;
+}
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: minhaFonte;
-}
-
-
-:root{
-  --color-green: #528265;
-  --color-gray: #4c5b6b;
-  --color-white: #fff;
 }
 
 @font-face {
@@ -26,13 +25,12 @@
 
 .hr-green {
   border: 0.5rem solid var(--color-green);
-  width: 100%;
   padding: 0;
   margin-top: 0.5rem;
 }
 .hr-gray {
-  border: 0.3rem solid var(--color-gray);
-  width: 100%;
+  border: 0.3rem solid var(--color-light-gray);
+  /* width: 100%; */
   padding: 0;
   /* margin-top: 0.5rem; */
 }
@@ -51,41 +49,29 @@
 .btn-login {
   display: inline-flex;
   float: right;
+  margin-top: 1.1rem;
   border: 0.3rem solid var(--color-green);
   border-radius: 3rem;
-  margin-top: 1.1rem;
 }
 
-.btn-login h4{
+.btn-login h4 {
   margin: 5px;
 }
 
-.btn-entrar {
-  padding: 0.3em 2em;
-  color: var(--color-green);
-}
-
+.btn-entrar,
 .btn-cadastrar {
+  border: 0.3rem solid transparent;
   border-radius: 3rem;
-  padding: 0.3em 2em;
-  background-color: var(--color-green);
-  color: var(--color-white);
+  padding: 0 2rem;
+  text-align: center;
+  transition: 0.2s;
+  cursor: pointer;
 }
 
-.btn-entrar:hover {
-  /* border: 0.3rem solid var(--color-green); */
-  border-radius: 3rem;
+.active {
+  border: 0.3rem solid var(--color-green);
   background-color: var(--color-green);
   color: var(--color-white);
-  /* margin: 0; */
-}
-
-.btn-entrar:hover + .btn-cadastrar {
-  /* Define os estilos que substituirão os estilos de .btn-cadastrar quando .btn-entrar estiver em :hover */
-  border: none;
-  background-color: transparent;
-  color: var(--color-green);
-  /* padding: 0; */
 }
 
 /* conteudo */
@@ -98,7 +84,7 @@
 
 /* card esquerdo */
 .card-esquerdo{
-  width: 51%;
+  width: 50%;
 }
 
 .card-esquerdo h1{
@@ -106,7 +92,7 @@
   color: var(--color-green);
 }
 
-.card-esquerdo h4{
+.card-esquerdo h5{
   color: var(--color-gray);
 }
 
@@ -155,6 +141,7 @@
   border-radius: 3rem;
 }
 
+/* conteúdo 2 */
 
 
 .conteudo-02 {
@@ -165,4 +152,79 @@
 .content-info p {
   color: var(--color-white);
   font-size: 1.4rem;
+}
+
+/* Conteúdo 3 */
+
+.conteudo-03{
+  padding: 3rem;
+}
+
+.conteudo-03 h3{
+  color: var(--color-gray);
+  text-align: center;
+}
+
+/* card de membros da equipe */
+
+.card-equipe{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 2rem;
+}
+
+.membro{
+  text-align: center;
+}
+
+.membro img{
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  
+}
+
+.membro p{
+  color: var(--color-gray);
+  font-size: 1.4rem;
+  text-align: center;
+  /* padding: 1rem; */
+}
+
+/* botão sobre nós */
+
+.sobre-nos{
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.btn-sobre{
+  border: 0.3rem solid var(--color-green);
+  border-radius: 4rem;
+  background-color: var(--color-green);
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+.btn-sobre:hover{
+  background-color: var(--color-white);
+  color: var(--color-green);
+  transition: 0.3s;
+}
+
+.footer{
+  text-align: center;
+  padding: 1.2rem;
+  background-color: var(--color-green);
+}
+.footer h5{
+  color: var(--color-white);
+}
+
+.footer p{
+  color: var(--color-light-gray);
 }
