@@ -1,10 +1,10 @@
-:root{
+:root {
   --color-green: #528265;
   --color-gray: #384552;
   --color-white: #fff;
-  --color-light-gray:#c9d3dd;
+  --color-light-gray: #c9d3dd;
 }
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,12 +12,11 @@
 }
 
 @font-face {
-  font-family: 'minhaFonte';
-  src: url('../fonts/open-sasn/OpenSans-Regular.ttf');
+  font-family: "minhaFonte";
+  src: url("../fonts/open-sasn/OpenSans-Regular.ttf");
 }
 
-
-.alinhamento{
+.alinhamento {
   padding-top: 1.7rem;
   padding-left: 2.7rem;
   padding-right: 1.7rem;
@@ -41,7 +40,7 @@
   padding-bottom: 1rem;
 }
 
-.logo img{
+.logo img {
   height: 5rem;
   width: 20rem;
 }
@@ -52,6 +51,7 @@
   margin-top: 1.1rem;
   border: 0.3rem solid var(--color-green);
   border-radius: 3rem;
+  margin-right: 5rem;
 }
 
 .btn-login h4 {
@@ -75,7 +75,7 @@
 }
 
 /* conteudo */
-.conteudo{
+.conteudo {
   display: flex;
   margin: 3rem;
   gap: 1.5rem;
@@ -83,24 +83,24 @@
 }
 
 /* card esquerdo */
-.card-esquerdo{
+.card-esquerdo {
   width: 50%;
 }
 
-.card-esquerdo h1{
+.card-esquerdo h1 {
   font-size: 3rem;
   color: var(--color-green);
 }
 
-.card-esquerdo h5{
+.card-esquerdo h5 {
   color: var(--color-gray);
 }
 
-.btn-card{
+.btn-card {
   margin-top: 2rem;
 }
 
-#btn-comece{
+#btn-comece {
   border: 0.3rem solid var(--color-green);
   border-radius: 4rem;
   background-color: var(--color-green);
@@ -111,13 +111,13 @@
   padding-left: 2rem;
 }
 
-#btn-comece:hover{
+#btn-comece:hover {
   background-color: var(--color-white);
   color: var(--color-green);
   transition: 0.3s;
 }
 
-#btn-saiba{
+#btn-saiba {
   border: 0.3rem solid var(--color-green);
   border-radius: 3rem;
   color: var(--color-green);
@@ -127,7 +127,7 @@
   padding-left: 3rem;
 }
 
-#btn-saiba:hover{
+#btn-saiba:hover {
   background-color: var(--color-green);
   color: var(--color-white);
   transition: 0.3s;
@@ -135,14 +135,13 @@
 
 /* card direito */
 
-.card-direito img{
+.card-direito img {
   height: 30rem;
   width: 37rem;
   border-radius: 3rem;
 }
 
 /* conteúdo 2 */
-
 
 .conteudo-02 {
   background-color: var(--color-green);
@@ -156,35 +155,34 @@
 
 /* Conteúdo 3 */
 
-.conteudo-03{
+.conteudo-03 {
   padding: 3rem;
 }
 
-.conteudo-03 h3{
+.conteudo-03 h3 {
   color: var(--color-gray);
   text-align: center;
 }
 
 /* card de membros da equipe */
 
-.card-equipe{
+.card-equipe {
   display: flex;
   justify-content: space-around;
   padding-top: 2rem;
 }
 
-.membro{
+.membro {
   text-align: center;
 }
 
-.membro img{
+.membro img {
   width: 8rem;
   height: 8rem;
   border-radius: 50%;
-  
 }
 
-.membro p{
+.membro p {
   color: var(--color-gray);
   font-size: 1.4rem;
   text-align: center;
@@ -193,13 +191,13 @@
 
 /* botão sobre nós */
 
-.sobre-nos{
+.sobre-nos {
   display: flex;
   justify-content: center;
   margin-top: 2.5rem;
 }
 
-.btn-sobre{
+.btn-sobre {
   border: 0.3rem solid var(--color-green);
   border-radius: 4rem;
   background-color: var(--color-green);
@@ -210,21 +208,61 @@
   padding-left: 2rem;
 }
 
-.btn-sobre:hover{
+.btn-sobre:hover {
   background-color: var(--color-white);
   color: var(--color-green);
   transition: 0.3s;
 }
 
-.footer{
+.footer {
   text-align: center;
   padding: 1.2rem;
   background-color: var(--color-green);
 }
-.footer h5{
+.footer h5 {
   color: var(--color-white);
 }
 
-.footer p{
+.footer p {
   color: var(--color-light-gray);
+}
+
+.menu {
+  float: right;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  top: 1.5rem;
+  right: 0;
+  height: 3rem;
+  width: 3rem;
+  color: var(--color-green);
+}
+
+.menu-content {
+  display: none;
+  background: #333;
+  position: absolute;
+  top: 0; /* Ajuste a posição conforme necessário */
+  right: 0;
+  width: 50%; /* Define a largura como 50% da tela */
+  height: 100%; /* Ocupa a altura inteira da tela */
+  padding: 10px;
+  border: 1px solid #777;
+}
+
+.menu-content a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+  font-size: 16px;
+  text-align: center;
+}
+
+.close {
+  cursor: pointer;
+  text-align: right;
 }
