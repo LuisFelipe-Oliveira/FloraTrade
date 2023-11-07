@@ -6,32 +6,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/luxonauta/luxa@1.1/dist/compressed/luxa.css" />
   <link rel="stylesheet" href="assets\css\style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <title>Flora Trade</title>
 </head>
 
 <body>
+
   <div class="alinhamento">
     <!-- header -->
     <div class="header">
-      <!-- botões de login -->
+      <!-- menu lateral -->
       <div class="menu">
-        <svg class="icon" id="menuIcon" xmlns="http://www.w3.org/2000/svg" height="1em" fill="currentColor"
-          viewBox="0 0 448 512">
-          <path
-            d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
-        </svg>
-        <div class="menu-content">
-          <a href="#">Sobre Nós</a>
-          <a href="#">Contato</a>
-          <a href="#">Entrar</a>
-          <a href="#">Cadastrar</a>
-          <svg class="icon close" xmlns="http://www.w3.org/2000/svg" height="1em" fill="currentColor"
-            viewBox="0 0 384 512" id="closeIcon">
-            <path
-              d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z" />
-          </svg>
+        <button class="btn-menu-open" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight"><i class="fas fa-bars" fill="currentColor"></i></button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <hr class="hr-green">
+          <div class="offcanvas-body">
+            <ul class="itens-menu">
+              <li><a href="">Teste</a></li>
+              <li><a href="">Teste</a></li>
+              <li><a href="">Teste</a></li>
+              <li><a href="">Teste</a></li>
+              <li><a href="">Teste</a></li>
+              <li><a href="">Teste</a></li>
+            </ul>
+          </div>
         </div>
       </div>
+      <!-- botões de login -->
       <div class="btn-login">
         <div class="btn-entrar">
           <h4><a href="">Entrar</a></h4>
@@ -118,9 +126,13 @@
   require_once "footer.php";
   ?>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+  integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
 <script src="assets/js/script.js"></script>
-<script src="assets/js/menu.js"></script>
-
 
 </html>

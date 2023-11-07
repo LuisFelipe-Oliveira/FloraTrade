@@ -1,3 +1,5 @@
+// efeito do botão cadastrar
+
 document.addEventListener("DOMContentLoaded", function () {
     const btnEntrar = document.querySelector(".btn-entrar");
     const btnCadastrar = document.querySelector(".btn-cadastrar");
