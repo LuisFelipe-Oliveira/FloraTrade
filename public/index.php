@@ -30,6 +30,8 @@
           <hr class="hr-green">
           <div class="offcanvas-body">
             <ul class="itens-menu">
+              <li class="button"><a onclick="error()">Entrar</a></li>
+              <li class="button"><a onclick="error()">Cadastrar</a></li>
               <li><a onclick="error()">ADM</a></li>
               <li><a onclick="error()">Tabela usuários</a></li>
               <li><a onclick="error()">Tabela produtos</a></li>

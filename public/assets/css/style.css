@@ -33,6 +33,7 @@ a {
   margin: 0;
   opacity: 100%;
 }
+
 .hr-gray {
   border: 0.3rem solid var(--color-light-gray);
   /* width: 100%; */
@@ -100,13 +101,13 @@ a {
 
 .btn-menu-open{
   border:none;
-  color: var(--color-gray);
+  color: var(--color-green);
   font-size: 2.7rem;
   margin-top: 0.5rem;
 }
 
 .btn-menu-open:hover{
-  color: var(--color-green);
+  color: var(--color-gray);
   transition: 0.3s;
 }
 
@@ -118,11 +119,12 @@ a {
 .itens-menu{
   list-style: none;
   align-items: center;
-}
-
-.itens-menu{
   padding: 0;
   margin: 0;
+}
+
+.button {
+  display: none;
 }
 
 .itens-menu li{
@@ -325,8 +327,77 @@ a {
   margin: 0;
 }
 
-
-
 i{
   float: right; 
+}
+
+@media screen and (max-width: 63.563rem) {
+  #btn-comece {
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 56.25rem) {
+  .btn-login {
+    display: none;
+  }
+
+  .button {
+    display: block;
+  }
+
+  .card-direito {
+    display: none;
+  }
+
+  .conteudo {
+    margin: 2rem;
+    justify-content: center;
+    gap: 10rem;
+  }
+
+  .card-esquerdo {
+    width: 100%;
+  }
+
+  .conteudo-02 {
+    padding: 3rem;
+  }
+
+  .card-equipe {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 33.75rem) {
+  .alinhamento {
+    padding-left: 1rem;
+    padding-right: 0rem;
+  }
+
+  .offcanvas {
+    width: 100% !important;
+  }
+
+  .logo img {
+    height: 5rem;
+    width: 15rem;
+  }
+}
+
+@media screen and (max-width: 24.688rem) {
+  .logo img {
+    height: 4rem;
+    width: 13rem;
+  }
+}
+
+@media screen and (max-width: 28.5rem) {
+  .btn-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
