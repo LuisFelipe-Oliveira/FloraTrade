@@ -342,6 +342,10 @@ i{
     display: none;
   }
 
+  .offcanvas {
+    width: 100% !important;
+  }
+
   .button {
     display: block;
   }
@@ -374,10 +378,6 @@ i{
   .alinhamento {
     padding-left: 1rem;
     padding-right: 0rem;
-  }
-
-  .offcanvas {
-    width: 100% !important;
   }
 
   .logo img {
