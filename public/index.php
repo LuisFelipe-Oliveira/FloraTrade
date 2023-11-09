@@ -30,12 +30,12 @@
           <hr class="hr-green">
           <div class="offcanvas-body">
             <ul class="itens-menu">
-              <li class="button"><a onclick="error()">Entrar</a></li>
-              <li class="button"><a onclick="error()">Cadastrar</a></li>
-              <li><a onclick="error()">ADM</a></li>
-              <li><a onclick="error()">Tabela usuários</a></li>
-              <li><a onclick="error()">Tabela produtos</a></li>
-              <li><a onclick="error()">Contatos</a></li>
+              <a href=""><li class="button">Entrar</li></a>
+              <a href=""><li class="button">Cadastrar</li></a>
+              <a onclick="error()"><li>ADM</li></a>
+              <a onclick="error()"><li>Tabela usuários</li></a>
+              <a onclick="error()"><li>Tabela produtos</li></a>
+              <a onclick="error()"><li>Contatos</li></a>
             </ul>
           </div>
         </div>
@@ -98,7 +98,7 @@
     <!-- card de membros da equipe -->
     <div class="card-equipe">
       <div class="membro">
-        <img src="assets/imgs/rogerio-perfil.jpg" alt="">
+        <img src="assets/imgs/felipe-perfil.jpeg" alt="">
         <p>Felipe</p>
       </div>
       <div class="membro">
@@ -110,11 +110,11 @@
         <p>Luis</p>
       </div>
       <div class="membro">
-        <img src="assets/imgs/avatar.jpg" alt="">
+        <img src="assets/imgs/joao-perfil.jpg" alt="">
         <p>João</p>
       </div>
       <div class="membro">
-        <img src="assets/imgs/avatar.jpg" alt="">
+        <img src="assets/imgs/jose-perfil.jpg" alt="">
         <p>José</p>
       </div>
     </div>

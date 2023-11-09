@@ -118,7 +118,7 @@ a {
 
 .itens-menu{
   list-style: none;
-  align-items: center;
+  align-items: justify;
   padding: 0;
   margin: 0;
 }
@@ -137,17 +137,15 @@ a {
 .itens-menu li:hover{
   background-color: var(--color-green);
   border-radius: 10rem;
+  color: var(--color-white);
 }
 
-.itens-menu li:hover a{
-  color: var(--color-white);
-} 
 
 .itens-menu a{
   text-decoration: none;
   color: var(--color-gray);
   font-size: 1.3rem;
-  text-align: center;
+  text-align: justify;
   
 }
 
@@ -348,6 +346,7 @@ i{
 
   .button {
     display: block;
+    font-size: 1.3rem;
   }
 
   .card-direito {
