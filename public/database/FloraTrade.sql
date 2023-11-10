@@ -3,14 +3,22 @@ CREATE DATABASE FloraTrade;
 USE FloraTrade;
 
 CREATE TABLE
-    Pessoa (
-        IdPessoa INT NOT NULL,
+    Cliente (
+        IdCliente INT NOT NULL,
         Nome VARCHAR(255),
-        Tipo VARCHAR(7),
         CPF INT,
         Telefone VARCHAR(15),
         Email VARCHAR(70),
-        PRIMARY KEY(IdPessoa)
+        PRIMARY KEY (IdCliente)
+    );
+
+CREATE TABLE
+    Usuario (
+        IdUsuario INT NOT NULL,
+        nome VARCHAR(255),
+        Telefone VARCHAR(11),
+        dataCriacao DATETIME DEFAULT current_timestamp(),
+        PRIMARY KEY (IdUsuario)
     );
 
 CREATE TABLE
@@ -19,7 +27,7 @@ CREATE TABLE
         Nome VARCHAR(45),
         Preco DOUBLE,
         Quantidade INT,
-        PRIMARY KEY(IdProduto)
+        PRIMARY KEY (IdProduto)
     );
 
 CREATE TABLE
@@ -27,9 +35,11 @@ CREATE TABLE
         IdVenda INT NOT NULL,
         DataVenda DATE,
         Total DOUBLE,
-        IdPessoa INT,
-        PRIMARY KEY(IdVenda),
-        FOREIGN KEY (IdPessoa) REFERENCES Pessoa (IdPessoa)
+        IdUsuario INT,
+        IdCliente INT,
+        PRIMARY KEY (IdVenda),
+        FOREIGN KEY (IdUsuario) REFERENCES Usuario (IdUsuario),
+        FOREIGN KEY (IdCliente) REFERENCES Cliente (IdCliente)
     );
 
 CREATE TABLE
@@ -47,7 +57,7 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    Fornecedor(
+    Fornecedor (
         IdFornecedor INT NOT NULL,
         NomeFornecedor VARCHAR(45),
         DataCadastro DATE,
@@ -55,12 +65,14 @@ CREATE TABLE
         CNPJ INT,
         PRIMARY KEY (IdFornecedor)
     );
-
-CREATE TABLE Lote (
-    IdProduto INT,
-    IdFornecedor INT,
-    DataEntrega DATE,
-    Situacao VARCHAR(45),
-    FOREIGN KEY (IdProduto) REFERENCES Produto (IdProduto),
-    FOREIGN KEY (IdFornecedor) REFERENCES Fornecedor (IdFornecedor)
-);
+    
+CREATE TABLE
+    Pedido (
+		IdPedido INT NOT NULL,
+        IdProduto INT,
+        IdFornecedor INT,
+        DataEntrega DATE,
+        Situacao VARCHAR(45),
+        FOREIGN KEY (IdProduto) REFERENCES Produto (IdProduto),
+        FOREIGN KEY (IdFornecedor) REFERENCES Fornecedor (IdFornecedor)
+    );

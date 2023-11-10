@@ -32,9 +32,11 @@
             <ul class="itens-menu">
               <a href=""><li class="button">Entrar</li></a>
               <a href=""><li class="button">Cadastrar</li></a>
-              <a onclick="error()"><li>ADM</li></a>
-              <a onclick="error()"><li>Tabela usuários</li></a>
-              <a onclick="error()"><li>Tabela produtos</li></a>
+              <a onclick="error()"><li>Usuários</li></a>
+              <a onclick="error()"><li>Produtos</li></a>
+              <a onclick="error()"><li>Estoque</li></a>
+              <a onclick="error()"><li>Clientes</li></a>
+              <a onclick="error()"><li>Fornecedores</li></a>
               <a onclick="error()"><li>Contatos</li></a>
             </ul>
           </div>
