@@ -1,0 +1,15 @@
+.container {
+  padding: 2.5rem 0 2.5rem 0;
+}
+
+.linha {
+  gap: 2px;
+}
+
+.ajuste-margem {
+  margin-right: -12px;
+}
+
+.centralizar {
+  padding: 20px;
+}
