@@ -4,7 +4,7 @@ USE FloraTrade;
 
 CREATE TABLE
     Cliente (
-        IdCliente INT NOT NULL,
+        IdCliente INT NOT NULL AUTO_INCREMENT,
         Nome VARCHAR(255),
         CPF INT,
         Telefone VARCHAR(15),
@@ -25,7 +25,7 @@ CREATE TABLE
 
 CREATE TABLE
     Produto (
-        IdProduto INT NOT NULL,
+        IdProduto INT NOT NULL AUTO_INCREMENT,
         Nome VARCHAR(45),
         Preco DOUBLE,
         Quantidade INT,
@@ -34,7 +34,7 @@ CREATE TABLE
 
 CREATE TABLE
     Venda (
-        IdVenda INT NOT NULL,
+        IdVenda INT NOT NULL AUTO_INCREMENT,
         DataVenda DATE,
         Total DOUBLE,
         IdUsuario INT,
@@ -46,7 +46,7 @@ CREATE TABLE
 
 CREATE TABLE
     ItemVenda (
-        IdItemVenda INT NOT NULL,
+        IdItemVenda INT NOT NULL AUTO_INCREMENT,
         Quantidade INT,
         ValorUnitario DOUBLE,
         Desconto DOUBLE,
@@ -67,10 +67,10 @@ CREATE TABLE
         CNPJ VARCHAR(14),
         PRIMARY KEY (IdFornecedor)
     );
-    
+
 CREATE TABLE
     Pedido (
-		IdPedido INT NOT NULL,
+        IdPedido INT NOT NULL AUTO_INCREMENT,
         IdProduto INT,
         IdFornecedor INT,
         DataEntrega DATE,
