@@ -60,11 +60,11 @@ CREATE TABLE
 
 CREATE TABLE
     Fornecedor (
-        IdFornecedor INT NOT NULL,
+        IdFornecedor INT NOT NULL AUTO_INCREMENT,
         NomeFornecedor VARCHAR(45),
         DataCadastro DATE,
         Situacao VARCHAR(10),
-        CNPJ INT,
+        CNPJ VARCHAR(14),
         PRIMARY KEY (IdFornecedor)
     );
     

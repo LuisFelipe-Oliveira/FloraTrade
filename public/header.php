@@ -49,7 +49,7 @@
                             <a onclick="error()">
                                 <li>Clientes</li>
                             </a>
-                            <a onclick="error()">
+                            <a href="fornecedor.php">
                                 <li>Fornecedores</li>
                             </a>
                             <a onclick="error()">
