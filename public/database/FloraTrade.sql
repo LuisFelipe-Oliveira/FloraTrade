@@ -14,10 +14,12 @@ CREATE TABLE
 
 CREATE TABLE
     Usuario (
-        IdUsuario INT NOT NULL,
-        nome VARCHAR(255),
-        Telefone VARCHAR(11),
-        dataCriacao DATETIME DEFAULT current_timestamp(),
+        IdUsuario INT NOT NULL AUTO_INCREMENT,
+        Nome VARCHAR(255) NOT NULL,
+        Telefone VARCHAR(11) NOT NULL,
+        Email VARCHAR(60) NOT NULL,
+        SENHA VARCHAR(60) NOT NULL,
+        DataCriacao DATETIME DEFAULT current_timestamp(),
         PRIMARY KEY (IdUsuario)
     );
 

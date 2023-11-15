@@ -31,12 +31,14 @@
                     <hr class="hr-green">
                     <div class="offcanvas-body">
                         <ul class="itens-menu">
-                            <a class="link2" href="login.php?login">
-                                <li class="button">Entrar</li>
-                            </a>
-                            <a class="link1" href="login.php?cadastro">
-                                <li class="button">Cadastrar</li>
-                            </a>
+                            <div class="btn-perfil-responsive">
+                                <a href="perfil.php">
+                                    <img src="assets/imgs/avatar.jpg" alt="Avatar perfil">
+                                    <span>Bem vindo
+                                        <?php echo $_SESSION['Nome']; ?> !
+                                    </span>
+                                </a>
+                            </div>
                             <a onclick="error()">
                                 <li>Usuários</li>
                             </a>
@@ -60,13 +62,13 @@
                 </div>
             </div>
             <!-- botões de login -->
-            <div class="btn-login">
-                <div class="btn-entrar">
-                    <h4><a class="link2" href="login.php?login">Entrar</a></h4>
-                </div>
-                <div class="btn-cadastrar">
-                    <h4><a class="link1" href="login.php?cadastro">Cadastrar</a></h4>
-                </div>
+            <div class="btn-perfil">
+                <a href="perfil.php">
+                    <img src="assets/imgs/avatar.jpg" alt="Avatar perfil">
+                    <span>Bem vindo
+                        <?php echo $_SESSION['Nome']; ?> !
+                    </span>
+                </a>
             </div>
             <!-- Logo -->
             <div class="logo">

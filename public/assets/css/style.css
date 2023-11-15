@@ -69,6 +69,35 @@ a {
   color: var(--color-gray);
 }
 
+.btn-perfil img{
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 4rem;
+}
+
+.btn-perfil{
+  padding: 0.3rem 1.2rem;
+  display: flex;
+  float: right;
+  border: 0.3rem solid var(--color-green);
+  border-radius: 3rem;
+  margin-right: 1.2rem;
+}
+
+.btn-perfil:hover{
+  background-color: var(--color-light-gray);
+  transition: 0.2s;
+}
+
+.btn-perfil a{ 
+  text-decoration: none;
+  color: var(--color-gray);
+}
+
+.btn-perfil-responsive{
+    display: none;
+}
+
 .btn-login h4 {
   margin: 5px;
 }
@@ -340,6 +369,35 @@ i{
   .btn-login {
     display: none;
   }
+
+  .btn-perfil{
+    display: none;
+  }
+
+  .btn-perfil-responsive img{
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 4rem;
+}
+
+.btn-perfil-responsive{
+  display: flex;
+  padding: 0.3rem 0.7rem;
+  border: 0.2rem solid var(--color-green);
+  border-radius: 3rem;
+  margin-right: 0.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.btn-perfil-responsive:hover{
+  background-color: var(--color-light-gray);
+  transition: 0.2s;
+}
+
+.btn-perfil-responsive a{ 
+  text-decoration: none;
+  color: var(--color-gray);
+}
 
   .offcanvas {
     width: 100% !important;

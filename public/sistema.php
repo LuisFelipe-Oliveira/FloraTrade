@@ -1,5 +1,19 @@
 <?php
-require_once("header.php");
+
+    session_start();
+
+    if((!isset($_SESSION['Nome']) == true) and (!isset($_SESSION['Senha']) == true)){
+        unset($_SESSION['Nome']);
+        unset($_SESSION['Senha']);
+        header('Location: login.php');
+    }
+    // $logado = $_SESSION['usuario'];
+
+
+?>
+
+<?php
+require_once("headerLogado.php");
 ?>
 <!-- conteudo -->
 <div class="conteudo">
@@ -73,23 +87,5 @@ require_once("footer.php");
 ?>
 </body>
 
-<script>
-
-  var link1 = document.querySelectorAll('.link1');
-  var link2 = document.querySelectorAll('.link2');
-
-  for (const link of link1) {
-    link.addEventListener('click', function () {
-      localStorage.setItem('acao', 'alterarClasse1');
-    });
-  }
-
-  for (const link of link2) {
-    link.addEventListener('click', function () {
-      localStorage.setItem('acao', 'alterarClasse2');
-    });
-  }
-</script>
-<script>
 
 </html >
