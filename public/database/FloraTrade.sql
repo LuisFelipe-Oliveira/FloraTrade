@@ -75,6 +75,7 @@ CREATE TABLE
         IdFornecedor INT,
         DataEntrega DATE,
         Situacao VARCHAR(45),
+        PRIMARY KEY(IdPedido),
         FOREIGN KEY (IdProduto) REFERENCES Produto (IdProduto),
         FOREIGN KEY (IdFornecedor) REFERENCES Fornecedor (IdFornecedor)
     );
