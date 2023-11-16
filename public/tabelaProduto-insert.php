@@ -1,8 +1,6 @@
 <?php
 require_once("header.php");
 
-require_once('config/connect.php');
-
 if (isset($_POST['enviar'])) {
     $nome = "";
     $preco = "";
@@ -50,6 +48,7 @@ if (isset($_POST['enviar'])) {
             <label for="quantidade">&nbsp;Quantidade</label>
             <input type="number" name="quantidade" id="quantidade" class="form-control" required min="0" step="1"><br>
             <input type="submit" name="enviar" value="Inserir" class="btn btn-primary">
+            <a href="tabelaProduto.php"><button type="button" class="btn btn-danger">Cancelar</button></a>
         </form>
     </div>
 </div>
