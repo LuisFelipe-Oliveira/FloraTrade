@@ -114,9 +114,15 @@ if (isset($_POST["enviar"])) {
         </div>
         <div class="form-container sign-in-container">
             <form action="testLogin.php" method="post">
+                <?php if (isset($_GET['msg'])) {
+                    $msg = $_GET['msg'];
+                    if ($msg = "invalido"){
+                        echo "<div class='alert alert-danger' role='alert'>Falha ao inserir o registro!</div>";
+                    }else{}
+                    }?>
                 <h1>Entre</h1>
                 <br>
-                <input type="text" name="Nome" placeholder="Nome"required />
+                <input type="text" name="Email" placeholder="E-mail"required />
                 <input type="password" name="Senha" placeholder="Senha" required/>
                 <a href="senha1.php">Esqueceu sua senha?</a>
                 <button name="submit">Entre</button>
@@ -129,12 +135,12 @@ if (isset($_POST["enviar"])) {
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
                     <h1>Bem Vindo Novamente!</h1>
-                    <p>Faça o login e se conecte novamente no Fatraca</p>
+                    <p>Faça o login e se conecte novamente no FloraTrade</p>
                     <button class="ghost" id="signIn">Entre</button>
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1>Olá, Visitante!</h1>
-                    <p>Introduza o seus dados e conheça o Fatraca</p>
+                    <p>Introduza o seus dados e conheça o FloraTrade</p>
                     <button class="ghost" id="signUp">Cadastre-se</button>
                 </div>
             </div>

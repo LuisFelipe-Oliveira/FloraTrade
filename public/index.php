@@ -1,6 +1,8 @@
 <?php
 require_once("header.php");
 ?>
+<link rel="stylesheet" href="assets\css\index.css">
+
 <!-- conteudo -->
 <div class="conteudo">
   <!-- card lado esquerdo (texto e botôes) -->
@@ -72,24 +74,4 @@ require_once("header.php");
 require_once("footer.php");
 ?>
 </body>
-
-<script>
-
-  var link1 = document.querySelectorAll('.link1');
-  var link2 = document.querySelectorAll('.link2');
-
-  for (const link of link1) {
-    link.addEventListener('click', function () {
-      localStorage.setItem('acao', 'alterarClasse1');
-    });
-  }
-
-  for (const link of link2) {
-    link.addEventListener('click', function () {
-      localStorage.setItem('acao', 'alterarClasse2');
-    });
-  }
-</script>
-<script>
-
 </html >

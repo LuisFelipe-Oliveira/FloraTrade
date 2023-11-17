@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,12 +10,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/luxonauta/luxa@1.1/dist/compressed/luxa.css" />
-    <link rel="stylesheet" href="assets\css\style.css" />
+    <link rel="stylesheet" href="assets\css\header-footer.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.min.css" rel="stylesheet">
-    <title>Flora Trade</title>
+    <title>FloraTrade</title>
 </head>
 
 <body>
@@ -29,49 +34,130 @@
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <hr class="hr-green">
-                    <div class="offcanvas-body">
-                        <ul class="itens-menu">
-                            <a class="link2" href="login.php?login">
-                                <li class="button">Entrar</li>
-                            </a>
-                            <a class="link1" href="login.php?cadastro">
-                                <li class="button">Cadastrar</li>
-                            </a>
-                            <a onclick="error()">
-                                <li>Usuários</li>
-                            </a>
-                            <a href="tabelaProduto.php">
-                                <li>Produtos</li>
-                            </a>
-                            <a onclick="error()">
-                                <li>Estoque</li>
-                            </a>
-                            <a onclick="error()">
-                                <li>Clientes</li>
-                            </a>
-                            <a href="fornecedor.php">
-                                <li>Fornecedores</li>
-                            </a>
-                            <a onclick="error()">
-                                <li>Contatos</li>
-                            </a>
-                        </ul>
+                    <?php if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] == false) { ?>
+                        <div class="offcanvas-body">
+                            <ul class="itens-menu">
+                                <a class="link2" href="login.php?login">
+                                    <li class="button">Entrar</li>
+                                </a>
+                                <a class="link1" href="login.php?cadastro">
+                                    <li class="button">Cadastrar</li>
+                                </a>
+                                <a onclick="error()">
+                                    <li>Usuários</li>
+                                </a>
+                                <a onclick="error()">
+                                    <li>Produtos</li>
+                                </a>
+                                <a onclick="error()">
+                                    <li>Estoque</li>
+                                </a>
+                                <a onclick="error()">
+                                    <li>Clientes</li>
+                                </a>
+                                <a onclick="error()">
+                                    <li>Fornecedores</li>
+                                </a>
+                                <a onclick="error()">
+                                    <li>Contatos</li>
+                                </a>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- botões de login -->
-            <div class="btn-login">
-                <div class="btn-entrar">
-                    <h4><a class="link2" href="login.php?login">Entrar</a></h4>
+                <!-- botões de login -->
+                <div class="btn-login">
+                    <a class="link2" href="login.php?login">
+                        <div class="btn-entrar">
+                            <h4>Entrar</h4>
+                        </div>
+                    </a>
+                    <a class="link1" href="login.php?cadastro">
+                        <div class="btn-cadastrar">
+                            <h4>Cadastrar</h4>
+                        </div>
+                    </a>
                 </div>
-                <div class="btn-cadastrar">
-                    <h4><a class="link1" href="login.php?cadastro">Cadastrar</a></h4>
+            <?php } else { ?>
+                <div class="offcanvas-body">
+                    <ul class="itens-menu">
+                        <div class="btn-perfil-responsive">
+                            <div>
+                                <div class="btn-usuario">
+                                    <a href="perfil.php">
+                                        <img src="assets/imgs/avatar.jpg" alt="Avatar perfil">
+                                        <span>Bem vindo
+                                            <?php echo $_SESSION['Nome']; ?> !
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="btn-sair">
+                                    <a href="logout.php">
+                                        <p>
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" fill="currentColor"
+                                                viewBox="0 0 512 512">
+                                                <path
+                                                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z" />
+                                            </svg>
+                                            Sair
+                                        </p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="">
+                            <li>Usuários</li>
+                        </a>
+                        <a href="tabelaProduto.php">
+                            <li>Produtos</li>
+                        </a>
+                        <a href="">
+                            <li>Estoque</li>
+                        </a>
+                        <a href="">
+                            <li>Clientes</li>
+                        </a>
+                        <a href="fornecedor.php">
+                            <li>Fornecedores</li>
+                        </a>
+                        <a href="">
+                            <li>Contatos</li>
+                        </a>
+                    </ul>
                 </div>
-            </div>
-            <!-- Logo -->
-            <div class="logo">
-                <img class="logo" src="assets/imgs/Logo.png" alt="" />
             </div>
         </div>
+        <!-- botões de login -->
+        <div class="btn-perfil">
+            <div>
+                <div class="btn-usuario">
+                    <a href="perfil.php">
+                        <img src="assets/imgs/avatar.jpg" alt="Avatar perfil">
+                        <span>Bem vindo
+                            <?php echo $_SESSION['Nome']; ?> !
+                        </span>
+                    </a>
+                </div>
+                <div class="btn-sair">
+                    <a href="logout.php">
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" fill="currentColor" viewBox="0 0 512 512">
+                                <path
+                                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z" />
+                            </svg>
+                            Sair
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+    <!-- Logo -->
+    <div class="logo">
+        <a href="index.php">
+            <img class="logo" src="assets/imgs/Logo.png" alt="" />
+        </a>
+    </div>
+    </div>
     </div>
     <hr class="hr-green" />

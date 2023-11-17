@@ -4,16 +4,17 @@
 
     session_start();
 
-    if(isset($_POST['submit']) && !empty($_POST['Nome']) && !empty($_POST['Senha'])){
+    if(isset($_POST['submit']) && !empty($_POST['Email']) && !empty($_POST['Senha'])){
         //Acessa
 
         include_once('./config/connect.php');
 
-        $nome = $_POST['Nome'];
+        $email = $_POST['Email'];
         $senha = md5($_POST['Senha']);
 
-        $sql = "SELECT * FROM `Usuario` WHERE Nome = '$nome' AND Senha = '$senha'";
+        $sql = "SELECT * FROM `Usuario` WHERE Email = '$email' AND Senha = '$senha'";
 
+        $nome = $_POST['Nome'];
         $stmt = $conn->prepare($sql);
 
         $stmt->execute();
@@ -21,23 +22,24 @@
         $result = $stmt->fetchAll();
 
         if (count($result) < 1){
-            unset($_SESSION['Nome']);
+            unset($_SESSION['Email']);
             unset($_SESSION['Senha']);
-            $msg = "Nome inválido ou senha inválida";
             header('Location: login.php');
+            $msg = "invalido";
         }else{
             foreach($result as $row){
+                $_SESSION["loggedin"] = true;
+                $_SESSION['Email'] = $row['Email'];
                 $_SESSION['Nome'] = $row['Nome'];
                 $_SESSION['Senha'] = $senha;
-                header('Location: sistema.php');
+                header('Location: index.php');
             }
         }
         
     }
     else{
         //Não acessa
-        $msg = "Nome inválido ou senha inválida";
-        
+        $msg = "invalido";
         header('Location: login.php');
     }
 

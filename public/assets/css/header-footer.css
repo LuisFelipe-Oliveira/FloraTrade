@@ -1,0 +1,320 @@
+:root {
+    --color-green: #528265;
+    --color-gray: #384552;
+    --color-white: #fff;
+    --color-light-gray: #c9d3dd;
+    --color-red: #f82626;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: minhaFonte;
+}
+
+@font-face {
+    font-family: "minhaFonte";
+    src: url("../fonts/open-sasn/OpenSans-Regular.ttf");
+}
+
+.alinhamento {
+    padding-top: 1.5rem;
+    padding-left: 2.5rem;
+    padding-right: 1.7rem;
+    padding-bottom: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.hr-green {
+    border: 0.5rem solid var(--color-green);
+    padding: 0;
+    margin-top: 0.5rem;
+    margin: 0;
+    opacity: 100%;
+}
+
+.hr-gray {
+    border: 0.3rem solid var(--color-light-gray);
+    /* width: 100%; */
+    padding: 0;
+    /* margin-top: 0.5rem; */
+    margin: 0;
+    opacity: 100%;
+}
+
+/* header */
+
+.header {
+    padding-bottom: 1rem;
+    /* display: flex; */
+}
+
+.logo img {
+    height: 5rem;
+    width: 20rem;
+}
+
+.btn-login {
+    display: flex;
+    float: right;
+    margin-top: 0.9rem;
+    border: 0.3rem solid var(--color-green);
+    border-radius: 3rem;
+    margin-right: 1.2rem;
+}
+
+.btn-login a {
+    text-decoration: none;
+    color: var(--color-gray);
+}
+
+.btn-login h4 {
+    margin: 5px;
+}
+
+.btn-entrar,
+.btn-cadastrar {
+    border: 0.3rem solid transparent;
+    border-radius: 3rem;
+    padding: 0 2rem;
+    text-align: center;
+    transition: 0.2s;
+    cursor: pointer;
+    color: var(--color-gray);
+}
+
+.active {
+    border: 0.3rem solid var(--color-green);
+    background-color: var(--color-green);
+    color: white;
+}
+
+.active a {
+    color: var(--color-white);
+}
+
+.btn-perfil img {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 4rem;
+}
+
+.btn-perfil {
+    padding: 0.3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    float: right;
+    border: 0.3rem solid var(--color-green);
+    border-radius: 2.5rem;
+    margin-right: 1.2rem;
+}
+
+.btn-usuario{
+    padding: 0;
+    margin: 0;
+}
+
+.btn-usuario:hover {
+    background-color: var(--color-light-gray);
+    border-radius: 2.3rem;
+    transition: 0.2s;
+}
+
+.btn-perfil a {
+    text-decoration: none;
+    color: var(--color-gray);
+}
+
+.btn-perfil-responsive {
+    display: none;
+}
+
+.btn-sair{
+    display: flex;
+    float: right; 
+}
+
+.btn-sair p{
+    margin: 0.5rem;
+}
+
+.btn-sair:hover{
+    background-color: var(--color-red);
+    transition: 0.2s;
+    border-radius: 2.5rem;
+}
+
+.btn-sair:hover p{
+    color: var(--color-white);
+    transition: 0.2s;
+}  
+
+.btn-sair p{
+    color: var(--color-red);
+}
+
+
+/* menu lateral */
+.menu {
+    display: flex;
+    float: right;
+}
+
+.btn-menu-open {
+    border: none;
+    color: var(--color-green);
+    font-size: 2.7rem;
+    margin-top: 0.5rem;
+}
+
+.btn-menu-open:hover {
+    color: var(--color-gray);
+    transition: 0.3s;
+}
+
+.offcanvas-title {
+    font-size: 2rem;
+    color: var(--color-gray);
+}
+
+.itens-menu {
+    list-style: none;
+    align-items: justify;
+    padding: 0;
+    margin: 0;
+}
+
+.button {
+    display: none;
+}
+
+.itens-menu li {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    margin: 0;
+    color: var(--color-gray);
+}
+
+.itens-menu li:hover {
+    background-color: var(--color-green);
+    border-radius: 10rem;
+    color: var(--color-white);
+}
+
+
+.itens-menu a {
+    text-decoration: none;
+    color: var(--color-gray);
+    font-size: 1.3rem;
+    text-align: justify;
+
+}
+
+i {
+    /* icone menu */
+    float: right;
+}
+
+/* footer */
+
+.footer {
+    position: relative;
+    text-align: center;
+    padding: 1.2rem;
+    background-color: var(--color-green);
+}
+
+.footer h5 {
+    color: var(--color-white);
+}
+
+.footer p {
+    color: var(--color-light-gray);
+    padding: 0;
+    margin: 0;
+}
+
+
+@media screen and (max-width: 56.25rem) {
+    .btn-login {
+        display: none;
+    }
+
+    .btn-perfil {
+        display: none;
+    }
+
+    .btn-perfil-responsive img {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 4rem;
+    }
+
+    .btn-perfil-responsive {
+        display: block;
+        padding: 0.3rem 0.7rem;
+        border: 0.2rem solid var(--color-green);
+        border-radius: 3rem;
+        margin-right: 0.3rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .btn-usuario:hover {
+        background-color: var(--color-light-gray);
+        border-radius: 2.3rem;
+        transition: 0.2s;
+    }
+
+    .btn-sair{
+        display: contents;
+
+    }
+
+    .btn-sair:hover{
+        display: contents;
+        background-color: var(--color-red);
+        transition: 0.2s;
+        border-radius: 2.5rem;
+    }
+    
+    .btn-sair:hover p{
+        background-color: var(--color-red);
+        color: var(--color-white);
+        border-radius: 2.5rem;
+        transition: 0.2s;
+    }  
+    
+    .btn-sair p{
+        padding-left: 10px;
+        color: var(--color-red);
+    }
+}
+
+@media screen and (max-width: 33.75rem) {
+    .alinhamento {
+        padding-left: 1rem;
+        padding-right: 0rem;
+    }
+
+    .logo img {
+        height: 4rem;
+        width: 15rem;
+    }
+
+    .btn-menu-open {
+        font-size: 2rem;
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 24.688rem) {
+    .logo img {
+        height: 3.3rem;
+        width: 11rem;
+    }
+}

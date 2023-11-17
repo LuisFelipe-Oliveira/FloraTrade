@@ -15,3 +15,21 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.all.min.js
 "></script>
 <script src="assets/js/script.js"></script>
 <script src="assets/js/alert.js"></script>
+
+<script>
+
+  var link1 = document.querySelectorAll('.link1');
+  var link2 = document.querySelectorAll('.link2');
+
+  for (const link of link1) {
+    link.addEventListener('click', function () {
+      localStorage.setItem('acao', 'alterarClasse1');
+    });
+  }
+
+  for (const link of link2) {
+    link.addEventListener('click', function () {
+      localStorage.setItem('acao', 'alterarClasse2');
+    });
+  }
+</script>
