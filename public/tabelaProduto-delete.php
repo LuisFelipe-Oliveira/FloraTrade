@@ -7,7 +7,7 @@ if (isset($_GET['id'])) {
 
     require_once('config/connect.php');
 
-    // Verifique se o produtos existe antes de exibir o formulário de exclusão
+    // Verifique se os produtos existe antes de exibir o formulário de exclusão
     $check_query = "SELECT * FROM Produto WHERE IdProduto = :id";
     $check_stmt = $conn->prepare($check_query);
     $check_stmt->bindParam(':id', $produtoId);
@@ -30,7 +30,7 @@ if (isset($_GET['id'])) {
             if ($delete_stmt->execute()) {
                 $msg = "delete success";
                 $msgerror = "";
-                header("Location: tabelaProduto.php?msg={$msg}&msgerror={$msgerror}");
+                header("Location: tabelaProduto.php");
                 exit();
             } else {
                 $msg = "";

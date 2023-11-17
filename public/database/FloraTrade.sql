@@ -1,3 +1,4 @@
+-- SQLBook: Code
 CREATE DATABASE FloraTrade;
 
 USE FloraTrade;

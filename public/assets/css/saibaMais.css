@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: minhaFonte;
+}
+
+@font-face {
+  font-family: "minhaFonte";
+  src: url("../fonts/open-sasn/OpenSans-Regular.ttf");
+}
+
+.conteudo {
+  display: flex;
+  margin: 5%;
+  gap: 2rem;
+  justify-content: space-around;
+}
+
+/* card texto esquerdo img lado direito */
+.card-esquerdo {
+  width: 50%;
+}
+
+.card-IMGdireito img {
+  height: 30rem;
+  width: 37rem;
+  border-radius: 3rem;
+}
+
+/* card texto direito img lado esquerdo */
+.card-direito {
+  width: 50%;
+  order: 2;
+}
+
+.card-IMGesquerdo img {
+  height: 30rem;
+  width: 37rem;
+  border-radius: 3rem;
+}
+
+@media screen and (max-width: 63.563rem) {
+  .conteudo {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-direito {
+    width: 100%;
+    order: 0;
+  }
+
+  .card-esquerdo {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 56.25rem) {
+  .card-esquerdo {
+    width: 100%;
+  }
+
+  .card-direito {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 33.75rem) {
+  .alinhamento {
+    padding-left: 1rem;
+    padding-right: 0rem;
+  }
+}

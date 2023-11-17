@@ -26,7 +26,7 @@ if (isset($_POST['enviar'])) {
 
     $conn = null;
 
-    header("Location: tabelaProduto.php?msg={$msg}&msgerror={$msgerror}");
+    // header("Location: tabelaProduto.php?msg={$msg}&msgerror={$msgerror}");
 }
 
 ?>

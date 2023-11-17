@@ -16,7 +16,7 @@ require_once("header.php");
     </h5>
     <div class="btn-card">
       <button id="btn-comece"><a href="">COMECE AQUI</a></button>
-      <button id="btn-saiba"><a href="">SAIBA MAIS</a></button>
+      <button id="btn-saiba"><a href="saibaMais.php">SAIBA MAIS</a></button>
     </div>
   </div>
   <!-- card direito (imagem) -->
@@ -74,4 +74,5 @@ require_once("header.php");
 require_once("footer.php");
 ?>
 </body>
-</html >
+
+</html>
