@@ -38,6 +38,8 @@ if(isset($_POST['enviar'])) {
 require("header.php");
 ?>
 
+<link rel="stylesheet" href="assets\css\tabela.css">
+
 <div class="container">
 
     <h2>Fornecedores</h2>
@@ -51,7 +53,11 @@ require("header.php");
 			<input type="text" name="cnpj" id="cnpj" class="form-control" required><br>
 			<label for="situação">&nbsp;Situação</label>
 			<input type="text" name="situação" id="situação" class="form-control" required><br>
-			<input type="submit" name="enviar" value="Inserir" class="btn btn-primary">
+            <div class="buttons-tabelas">
+                <a href="fornecedor.php"><button type="button"
+                        class="btn btn-danger btn-tamanho">Cancelar</button></a>
+                <input type="submit" name="enviar" value="Inserir" class="btn btn-primary btn-tamanho">
+            </div>
 		</form>
     </div>
 

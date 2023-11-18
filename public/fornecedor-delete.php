@@ -54,6 +54,8 @@ if (isset($_GET['id'])) {
 require("header.php");
 ?>
 
+<link rel="stylesheet" href="assets\css\tabela.css" />
+
 <div class="container">
     <h2>Fornecedores</h2>
     <p>Exclusão do cadastro de fornecedores.</p>
@@ -67,8 +69,11 @@ require("header.php");
             <input type="text" name="cnpj" id="cnpj" class="form-control" readonly value="<?= $fornecedorDetails['CNPJ']; ?>"><br>
             <label for="situação">&nbsp;Situação</label>
             <input type="text" name="situação" id="situação" class="form-control" readonly value="<?= $fornecedorDetails['Situacao']; ?>"><br>
-            <input type="submit" name="enviar" value="Excluir" class="btn btn-danger">
-            <a href="fornecedor.php"><button type="button" class="btn btn-primary">Cancelar</button></a>
+            <div class="buttons-tabelas">
+                <a href="fornecedor.php"><button type="button"
+                    class="btn btn-danger btn-tamanho">Cancelar</button></a>
+                <input type="submit" name="enviar" value="Excluir" class="btn btn-primary btn-tamanho">
+            </div>
         </form>
     </div>
 </div>
