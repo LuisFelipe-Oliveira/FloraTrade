@@ -109,53 +109,26 @@ a {
     flex-direction: column;
     float: right;
     border: 0.3rem solid var(--color-green);
-    border-radius: 2.5rem;
+    border-radius: 3rem;
     margin-right: 1.2rem;
 }
 
-.btn-usuario{
-    padding: 0;
-    margin: 0;
+
+button{
+    border: none;
 }
 
-.btn-usuario:hover {
-    background-color: var(--color-light-gray);
-    border-radius: 2.3rem;
-    transition: 0.2s;
+.drop{
+    width: 15rem;
 }
 
-.btn-perfil a {
-    text-decoration: none;
-    color: var(--color-gray);
-}
 
 .btn-perfil-responsive {
     display: none;
 }
 
-.btn-sair{
-    display: flex;
-    float: right; 
-}
 
-.btn-sair p{
-    margin: 0.5rem;
-}
 
-.btn-sair:hover{
-    background-color: var(--color-red);
-    transition: 0.2s;
-    border-radius: 2.5rem;
-}
-
-.btn-sair:hover p{
-    color: var(--color-white);
-    transition: 0.2s;
-}  
-
-.btn-sair p{
-    color: var(--color-red);
-}
 
 
 /* menu lateral */
@@ -204,6 +177,10 @@ a {
     background-color: var(--color-green);
     border-radius: 10rem;
     color: var(--color-white);
+}
+
+.btn-perfil-responsive li:hover{
+    background-color: var(--color-white);
 }
 
 
@@ -264,35 +241,11 @@ i {
         margin-bottom: 0.2rem;
     }
 
-    .btn-usuario:hover {
-        background-color: var(--color-light-gray);
-        border-radius: 2.3rem;
-        transition: 0.2s;
-    }
-
-    .btn-sair{
-        display: contents;
-
-    }
-
-    .btn-sair:hover{
-        display: contents;
-        background-color: var(--color-red);
-        transition: 0.2s;
-        border-radius: 2.5rem;
+    .drop{
+        width: 80%;
     }
     
-    .btn-sair:hover p{
-        background-color: var(--color-red);
-        color: var(--color-white);
-        border-radius: 2.5rem;
-        transition: 0.2s;
-    }  
-    
-    .btn-sair p{
-        padding-left: 10px;
-        color: var(--color-red);
-    }
+ 
 }
 
 @media screen and (max-width: 33.75rem) {
@@ -310,6 +263,11 @@ i {
         font-size: 2rem;
         margin-top: 0;
     }
+
+    .drop{
+        width: 70%;
+    }
+
 }
 
 @media screen and (max-width: 24.688rem) {

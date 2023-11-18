@@ -83,26 +83,25 @@ session_start();
                     <ul class="itens-menu">
                         <div class="btn-perfil-responsive">
                             <div>
-                                <div class="btn-usuario">
-                                    <a href="perfil.php">
-                                        <img src="assets/imgs/avatar.jpg" alt="Avatar perfil">
-                                        <span>Bem vindo
-                                            <?php echo $_SESSION['Nome']; ?> !
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="btn-sair">
-                                    <a href="logout.php">
-                                        <p>
-                                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" fill="currentColor"
-                                                viewBox="0 0 512 512">
-                                                <path
-                                                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z" />
-                                            </svg>
-                                            Sair
-                                        </p>
-                                    </a>
-                                </div>
+                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="assets/imgs/avatar.jpg" alt="Avatar perfil">
+                                    Bem vindo
+                                    <?php echo $_SESSION['Nome']; ?> !
+                                </button>
+                                <ul class="dropdown-menu drop">
+                                    <li><a class="dropdown-item" href="perfil.php">Peril</a></li>
+                                    <li class="btn-sair"><a class="dropdown-item " href="logout.php">
+                                            <div class="">
+                                                <span>Sair</span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" fill="currentColor"
+                                                    viewBox="0 0 512 512">
+                                                    <path
+                                                        d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z" />
+                                                </svg>
+                                            </div>
+                                        </a></li>
+                                </ul>
                             </div>
                         </div>
                         <a href="">
@@ -129,27 +128,23 @@ session_start();
         </div>
         <!-- botões de login -->
         <div class="btn-perfil">
-            <div>
-                <div class="btn-usuario">
-                    <a href="perfil.php">
-                        <img src="assets/imgs/avatar.jpg" alt="Avatar perfil">
-                        <span>Bem vindo
-                            <?php echo $_SESSION['Nome']; ?> !
-                        </span>
-                    </a>
-                </div>
-                <div class="btn-sair">
-                    <a href="logout.php">
-                        <p>
+            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="assets/imgs/avatar.jpg" alt="Avatar perfil">
+                Bem vindo
+                <?php echo $_SESSION['Nome']; ?> !
+            </button>
+            <ul class="dropdown-menu drop">
+                <li><a class="dropdown-item" href="perfil.php">Peril</a></li>
+                <li class="btn-sair"><a class="dropdown-item " href="logout.php">
+                        <div class="">
+                            <span>Sair</span>
                             <svg xmlns="http://www.w3.org/2000/svg" height="1em" fill="currentColor" viewBox="0 0 512 512">
                                 <path
                                     d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z" />
                             </svg>
-                            Sair
-                        </p>
-                    </a>
-                </div>
-            </div>
+                        </div>
+                    </a></li>
+            </ul>
         </div>
     <?php } ?>
     <!-- Logo -->
@@ -162,28 +157,28 @@ session_start();
     </div>
     <hr class="hr-green" />
 
-<?php
+    <?php
 
-if (isset($_GET['msg'])) {
-    $msg = $_GET['msg'];
-    $msgerror = $_GET['msgerror'];
-    if ($msg == 'insert success') {
-        echo "<div class='alert alert-success' role='alert'>Registro inserido com sucesso!</div>";
-    } else if ($msg  == 'insert error')  { 
-        echo "<div class='alert alert-danger' role='alert'>Falha ao inserir o registro! {$msgerror}</div>";
-    } else if ($msg  == 'update success')  { 
-        echo "<div class='alert alert-success' role='alert'>Registro atualizado com sucesso!</div>";
-    } else if ($msg  == 'update error')  { 
-        echo "<div class='alert alert-danger' role='alert'>Falha ao atualizar o registro! {$msgerror}</div>";
-    } else if ($msg  == 'delete success')  { 
-        echo "<div class='alert alert-success' role='alert'>Registro excluido com sucesso!</div>";
-    } else if ($msg  == 'delete error')  { 
-        echo "<div class='alert alert-danger' role='alert'>Falha ao excluir o registro! {$msgerror}</div>";
-    } else if ($msg  == 'invalid cnpj') {
-        echo "<div class='alert alert-danger' role='alert'>CNPJ deve conter 14 números! {$msgerror}</div>";
-    } else {
-        echo "<div class='alert alert-warning' role='alert'>{$msgerror}</div>";
+    if (isset($_GET['msg'])) {
+        $msg = $_GET['msg'];
+        $msgerror = $_GET['msgerror'];
+        if ($msg == 'insert success') {
+            echo "<div class='alert alert-success' role='alert'>Registro inserido com sucesso!</div>";
+        } else if ($msg == 'insert error') {
+            echo "<div class='alert alert-danger' role='alert'>Falha ao inserir o registro! {$msgerror}</div>";
+        } else if ($msg == 'update success') {
+            echo "<div class='alert alert-success' role='alert'>Registro atualizado com sucesso!</div>";
+        } else if ($msg == 'update error') {
+            echo "<div class='alert alert-danger' role='alert'>Falha ao atualizar o registro! {$msgerror}</div>";
+        } else if ($msg == 'delete success') {
+            echo "<div class='alert alert-success' role='alert'>Registro excluido com sucesso!</div>";
+        } else if ($msg == 'delete error') {
+            echo "<div class='alert alert-danger' role='alert'>Falha ao excluir o registro! {$msgerror}</div>";
+        } else if ($msg == 'invalid cnpj') {
+            echo "<div class='alert alert-danger' role='alert'>CNPJ deve conter 14 números! {$msgerror}</div>";
+        } else {
+            echo "<div class='alert alert-warning' role='alert'>{$msgerror}</div>";
+        }
     }
-}
 
-?>
+    ?>
