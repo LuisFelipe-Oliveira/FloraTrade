@@ -55,6 +55,8 @@ if (isset($_GET['id'])) {
 require("header.php");
 ?>
 
+<link rel="stylesheet" href="assets\css\tabela.css">
+
 <div class="container">
     <h2>Clientes</h2>
     <p>Exclusão do cadastro do cliente.</p>
@@ -70,10 +72,13 @@ require("header.php");
             <input type="text" name="telefone" id="telefone" class="form-control" readonly value="<?= $clienteDetails['Telefone']; ?>"><br>
             <label for="email">&nbsp;Email</label>
             <input type="text" name="email" id="email" class="form-control" readonly value="<?= $clienteDetails['Email']; ?>"><br>
-            <input type="submit" name="enviar" value="Excluir" class="btn btn-danger">
+           
             
-
-            <a href="cliente.php"><button type="button" class="btn btn-primary">Cancelar</button></a>
+            <div class="buttons-tabelas">
+                <a href="cliente.php"><button type="button"
+                        class="btn btn-primary btn-tamanho">Cancelar</button></a>
+                <input type="submit" name="enviar" value="Excluir" class="btn btn-danger btn-tamanho">
+            </div>
         </form>
     </div>
 </div>

@@ -57,6 +57,8 @@ if (isset($_GET['id'])) {
 require("header.php");
 ?>
 
+<link rel="stylesheet" href="assets\css\tabela.css">
+
 <div class="container">
     <h2>Clientes</h2>
     <p>Atualize as informações do cliente.</p>
@@ -75,7 +77,10 @@ require("header.php");
             <label for="email">Email</label>
             <input type="text" name="email" id="email" class="form-control" value="<?php echo $cliente['Email']; ?>" required><br>
 
-            <input type="submit" name="enviar" value="Atualizar" class="btn btn-primary w100">
+            <div class="buttons-tabelas"><a href="cliente.php"><button type="button"
+                        class="btn btn-danger btn-tamanho">Cancelar</button></a>
+                <input type="submit" name="enviar" value="Atualizar" class="btn btn-primary btn-tamanho">
+            </div>
         </form>
     </div>
 </div>
