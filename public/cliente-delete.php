@@ -1,20 +1,20 @@
 <?php
 
 
-// Certifique-se de que o ID do fornecedor foi fornecido
+// Certifique-se de que o ID do cliente foi fornecido
 if (isset($_GET['id'])) {
     $clienteId = $_GET['id'];
 
     require_once('config/connect.php');
 
-    // Verifique se o fornecedor existe antes de exibir o formulário de exclusão
+    // Verifique se o cliente existe antes de exibir o formulário de exclusão
     $check_query = "SELECT * FROM Cliente WHERE IdCliente = :id";
     $check_stmt = $conn->prepare($check_query);
     $check_stmt->bindParam(':id', $clienteId);
     $check_stmt->execute();
 
     if ($check_stmt->rowCount() > 0) {
-        // O fornecedor existe, obtenha os detalhes
+        // O cliente existe, obtenha os detalhes
         $clienteDetailsQuery = "SELECT * FROM Cliente WHERE IdCliente = :id";
         $clienteDetailsStmt = $conn->prepare($clienteDetailsQuery);
         $clienteDetailsStmt->bindParam(':id', $clienteId);
@@ -38,17 +38,17 @@ if (isset($_GET['id'])) {
             }
         }
     } else {
-        // O fornecedor não existe
+        // O cliente não existe
         $msg = "";
-        $msgerror = "Fornecedor não encontrado.";
+        $msgerror = "cliente não encontrado.";
         header("Location: cliente.php?msg={$msg}&msgerror={$msgerror}");
         exit();
     }
 
     $conn = null;
 } else {
-    // ID do fornecedor não fornecido na URL
-    header("Location: cliente.php?msg=&msgerror=ID do fornecedor não fornecido.");
+    // ID do cliente não fornecido na URL
+    header("Location: cliente.php?msg=&msgerror=ID do cliente não fornecido.");
     exit();
 }
 
@@ -73,7 +73,7 @@ require("header.php");
             <input type="submit" name="enviar" value="Excluir" class="btn btn-danger">
             
 
-            <a href="fornecedor.php"><button type="button" class="btn btn-primary">Cancelar</button></a>
+            <a href="cliente.php"><button type="button" class="btn btn-primary">Cancelar</button></a>
         </form>
     </div>
 </div>
