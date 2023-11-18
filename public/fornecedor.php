@@ -11,7 +11,7 @@ $conn = null;
 ?>
 
 <div class="container">
-  <h2>Contatos</h2>
+  <h2>Fornecedores</h2>
   <p>Listagem de fornecedores cadastrados.</p>
   <hr>
   <div class="float-right p-1">

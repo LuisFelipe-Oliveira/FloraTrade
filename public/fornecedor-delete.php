@@ -1,5 +1,4 @@
 <?php
-require("header.php");
 
 // Certifique-se de que o ID do fornecedor foi fornecido
 if (isset($_GET['id'])) {
@@ -33,7 +32,7 @@ if (isset($_GET['id'])) {
                 header("Location: fornecedor.php?msg={$msg}&msgerror={$msgerror}");
                 exit();
             } else {
-                $msg = "";
+                $msg = "delete error";
                 $msgerror = $delete_stmt->errorInfo()[2];
             }
         }
@@ -51,6 +50,8 @@ if (isset($_GET['id'])) {
     header("Location: fornecedor.php?msg=&msgerror=ID do fornecedor não fornecido.");
     exit();
 }
+
+require("header.php");
 ?>
 
 <div class="container">

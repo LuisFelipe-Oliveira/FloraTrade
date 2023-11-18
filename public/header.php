@@ -161,3 +161,29 @@ session_start();
     </div>
     </div>
     <hr class="hr-green" />
+
+<?php
+
+if (isset($_GET['msg'])) {
+    $msg = $_GET['msg'];
+    $msgerror = $_GET['msgerror'];
+    if ($msg == 'insert success') {
+        echo "<div class='alert alert-success' role='alert'>Registro inserido com sucesso!</div>";
+    } else if ($msg  == 'insert error')  { 
+        echo "<div class='alert alert-danger' role='alert'>Falha ao inserir o registro! {$msgerror}</div>";
+    } else if ($msg  == 'update success')  { 
+        echo "<div class='alert alert-success' role='alert'>Registro atualizado com sucesso!</div>";
+    } else if ($msg  == 'update error')  { 
+        echo "<div class='alert alert-danger' role='alert'>Falha ao atualizar o registro! {$msgerror}</div>";
+    } else if ($msg  == 'delete success')  { 
+        echo "<div class='alert alert-success' role='alert'>Registro excluido com sucesso!</div>";
+    } else if ($msg  == 'delete error')  { 
+        echo "<div class='alert alert-danger' role='alert'>Falha ao excluir o registro! {$msgerror}</div>";
+    } else if ($msg  == 'invalid cnpj') {
+        echo "<div class='alert alert-danger' role='alert'>CNPJ deve conter 14 números! {$msgerror}</div>";
+    } else {
+        echo "<div class='alert alert-warning' role='alert'>{$msgerror}</div>";
+    }
+}
+
+?>

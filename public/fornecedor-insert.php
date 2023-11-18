@@ -1,26 +1,31 @@
-<?php require("header.php"); 
+<?php  
 
 if(isset($_POST['enviar'])) {
     $nome = "";
     $cnpj = "";
     $situacao = "";
-    $nome = $_POST['nome'];
     $cnpj = preg_replace('/[^0-9]/', '', $_POST['cnpj']);
-    $situacao = $_POST['situação'];
-
-    require_once('config/connect.php');
-
-    $mysql_query = "INSERT INTO fornecedor (NomeFornecedor, CNPJ, Situacao)
-                                VALUES ('{$nome}', '{$cnpj}', '{$situacao}')";
-
-    $result = $conn->query($mysql_query);
-
-    if($result === true) {
-        $msg = "insert success";
+    if(strlen($cnpj) !== 14) {
+        $msg = "invalid cnpj";
         $msgerror = "";
     } else {
-        $msg = "";
-        $msgerror = $conn->errorInfo()[2];
+        $nome = $_POST['nome'];
+        $situacao = $_POST['situação'];
+
+        require_once('config/connect.php');
+
+        $mysql_query = "INSERT INTO fornecedor (NomeFornecedor, CNPJ, Situacao)
+                                    VALUES ('{$nome}', '{$cnpj}', '{$situacao}')";
+
+        $result = $conn->query($mysql_query);
+
+        if($result === true) {
+            $msg = "insert success";
+            $msgerror = "";
+        } else {
+            $msg = "insert error";
+            $msgerror = $conn->errorInfo()[2];
+        }
     }
 
     $conn = null;
@@ -28,6 +33,7 @@ if(isset($_POST['enviar'])) {
     header("Location: fornecedor.php?msg={$msg}&msgerror={$msgerror}");
 }
 
+require("header.php");
 ?>
 
 <div class="container">

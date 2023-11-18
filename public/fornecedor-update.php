@@ -1,5 +1,4 @@
 <?php
-require("header.php");
 
 if (isset($_GET['id'])) {
     $fornecedorId = $_GET['id'];
@@ -22,7 +21,7 @@ if (isset($_GET['id'])) {
             $msg = "update success";
             $msgerror = "";
         } else {
-            $msg = "";
+            $msg = "update error";
             $msgerror = $update_stmt->errorInfo()[2];
         }
 
@@ -51,6 +50,8 @@ if (isset($_GET['id'])) {
     // ID do fornecedor não fornecido na URL
     header("Location: fornecedor.php?msg=&msgerror=ID do fornecedor não fornecido.");
 }
+
+require("header.php");
 ?>
 
 <div class="container">
