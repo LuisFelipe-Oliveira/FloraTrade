@@ -5,26 +5,30 @@ if (isset($_GET['id'])) {
 
     if (isset($_POST['enviar'])) {
         $nome = $_POST['nome'];
-        $cnpj = $_POST['cnpj'];
+        $cnpj = preg_replace('/[^0-9]/', '', $_POST['cnpj']);
         $situacao = $_POST['situacao'];
-
-        require_once('config/connect.php');
-
-        $update_query = "UPDATE fornecedor SET NomeFornecedor = :nome, CNPJ = :cnpj, Situacao = :situacao WHERE IdFornecedor = :id";
-        $update_stmt = $conn->prepare($update_query);
-        $update_stmt->bindParam(':nome', $nome);
-        $update_stmt->bindParam(':cnpj', $cnpj);
-        $update_stmt->bindParam(':situacao', $situacao);
-        $update_stmt->bindParam(':id', $fornecedorId);
-
-        if ($update_stmt->execute()) {
-            $msg = "update success";
+        if(strlen($cnpj) !== 14) {
+            $msg = "invalid cnpj";
             $msgerror = "";
         } else {
-            $msg = "update error";
-            $msgerror = $update_stmt->errorInfo()[2];
-        }
+            require_once('config/connect.php');
 
+            $update_query = "UPDATE fornecedor SET NomeFornecedor = :nome, CNPJ = :cnpj, Situacao = :situacao WHERE IdFornecedor = :id";
+            $update_stmt = $conn->prepare($update_query);
+            $update_stmt->bindParam(':nome', $nome);
+            $update_stmt->bindParam(':cnpj', $cnpj);
+            $update_stmt->bindParam(':situacao', $situacao);
+            $update_stmt->bindParam(':id', $fornecedorId);
+
+            if ($update_stmt->execute()) {
+                $msg = "update success";
+                $msgerror = "";
+            } else {
+                $msg = "update error";
+                $msgerror = $update_stmt->errorInfo()[2];
+            }
+        }
+        
         $conn = null;
 
         header("Location: fornecedor.php?msg={$msg}&msgerror={$msgerror}");
