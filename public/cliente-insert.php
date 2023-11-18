@@ -6,24 +6,33 @@ if(isset($_POST['enviar'])) {
     $telefone = "";
     $nome = $_POST['nome'];
     $cpf = preg_replace('/[^0-9]/', '', $_POST['cpf']);
-    $telefone = $_POST['telefone'];
-    $email = $_POST['email'];
-
-    require_once('config/connect.php');
-
-    $mysql_query = "INSERT INTO Cliente (Nome, CPF, Telefone, Email)
-                                VALUES ('{$nome}', '{$cpf}', '{$telefone}', '{$email}')";
-
-    $result = $conn->query($mysql_query);
-
-    if($result === true) {
-        $msg = "insert success";
+    if(strlen($cpf) !== 11) {
+        $msg = "invalid cnpj";
         $msgerror = "";
     } else {
-        $msg = "";
-        $msgerror = $conn->errorInfo()[2];
-    }
+        $telefone = $_POST['telefone'];
+        $email = $_POST['email'];
 
+        require_once('config/connect.php');
+
+        $insert_query = "INSERT INTO Cliente (Nome, CPF, Telefone, Email)
+                                    VALUES (:nome, :cpf, :telefone, :email)";
+
+        $insert_stmt = $conn->prepare($insert_query);
+        $insert_stmt->bindParam(':nome', $nome);
+        $insert_stmt->bindParam(':cpf', $cpf);
+        $insert_stmt->bindParam(':telefone', $telefone);
+        $insert_stmt->bindParam(':email', $email);
+
+        if($insert_stmt->execute()){
+            $msg = "insert success";
+            $msgerror = "";
+        } else {
+            $msg = "insert error";
+            $msgerror = $conn->errorInfo()[2];
+        }
+    }
+    
     $conn = null;
 
     header("Location: cliente.php?msg={$msg}&msgerror={$msgerror}");
