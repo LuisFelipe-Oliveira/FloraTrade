@@ -1,6 +1,4 @@
 <?php
-require("header.php");
-
 // Certifique-se de que o ID do produto foi fornecido
 if (isset($_GET['id'])) {
     $produtoId = $_GET['id'];
@@ -51,6 +49,7 @@ if (isset($_GET['id'])) {
     header("Location: tabelaProduto.php?msg=&msgerror=ID do produtos não fornecido.");
     exit();
 }
+require("header.php");
 ?>
 <link rel="stylesheet" href="assets\css\tabela.css" />
 
@@ -70,8 +69,12 @@ if (isset($_GET['id'])) {
             <label for="Quantidade">&nbsp;Quantidade</label>
             <input type="text" name="Quantidade" id="Quantidade" class="form-control" readonly
                 value="<?= $produtosDetails['Quantidade']; ?>"><br>
-            <input type="submit" name="enviar" value="Excluir" class="btn btn-danger">
-            <a href="tabelaProduto.php"><button type="button" class="btn btn-primary">Cancelar</button></a>
+            <div class="buttons-tabelas">
+                <a href="tabelaProduto.php"><button type="button"
+                        class="btn btn-primary btn-tamanho">Cancelar</button></a>
+                <input type="submit" name="enviar" value="Excluir" class="btn btn-danger btn-tamanho">
+
+            </div>
         </form>
     </div>
 </div>

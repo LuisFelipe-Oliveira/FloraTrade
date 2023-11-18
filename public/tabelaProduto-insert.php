@@ -1,5 +1,4 @@
 <?php
-require_once("header.php");
 
 if (isset($_POST['enviar'])) {
     $nome = "";
@@ -26,18 +25,17 @@ if (isset($_POST['enviar'])) {
 
     $conn = null;
 
-    // header("Location: tabelaProduto.php?msg={$msg}&msgerror={$msgerror}");
+    header("Location: tabelaProduto.php?msg={$msg}&msgerror={$msgerror}");
 }
-
+require_once("header.php");
 ?>
 
-<link rel="stylesheet" href="assets\css\tabela.css" />
-
+<link rel="stylesheet" href="assets\css\tabela.css">
 
 <div class="container">
 
-    <h2>Fornecedores</h2>
-    <p>Cadastro de fornecedores.</p>
+    <h2>Produtos</h2>
+    <p>Cadastro de Produtos.</p>
 
     <div class="wrapper">
         <form method="post">
@@ -47,8 +45,11 @@ if (isset($_POST['enviar'])) {
             <input type="number" name="preco" id="preco" class="form-control" min="0" step="0.01" required><br>
             <label for="quantidade">&nbsp;Quantidade</label>
             <input type="number" name="quantidade" id="quantidade" class="form-control" required min="0" step="1"><br>
-            <input type="submit" name="enviar" value="Inserir" class="btn btn-primary">
-            <a href="tabelaProduto.php"><button type="button" class="btn btn-danger">Cancelar</button></a>
+            <div class="buttons-tabelas">
+                <a href="tabelaProduto.php"><button type="button"
+                        class="btn btn-danger btn-tamanho">Cancelar</button></a>
+                <input type="submit" name="enviar" value="Inserir" class="btn btn-primary btn-tamanho">
+            </div>
         </form>
     </div>
 </div>

@@ -13,3 +13,13 @@
 .centralizar {
   padding: 20px;
 }
+
+.btn-tamanho {
+  width: 10rem;
+}
+
+.buttons-tabelas {
+  display: flex;
+  justify-content: right;
+  gap: 1rem;
+}

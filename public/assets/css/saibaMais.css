@@ -72,4 +72,20 @@
     padding-left: 1rem;
     padding-right: 0rem;
   }
+
+  .conteudo {
+    gap: 1rem;
+  }
+
+  .card-IMGdireito img {
+    height: 20rem;
+    width: 37rem;
+    border-radius: 3rem;
+  }
+
+  .card-IMGesquerdo img {
+    height: 20rem;
+    width: 37rem;
+    border-radius: 3rem;
+  }
 }

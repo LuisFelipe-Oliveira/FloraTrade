@@ -1,4 +1,5 @@
 -- SQLBook: Code
+
 CREATE DATABASE FloraTrade;
 
 USE FloraTrade;
@@ -20,7 +21,7 @@ CREATE TABLE
         Telefone VARCHAR(11) NOT NULL,
         Email VARCHAR(60) NOT NULL,
         SENHA VARCHAR(60) NOT NULL,
-        DataCriacao DATETIME DEFAULT current_timestamp(),
+        DataCriacao DATETIME DEFAULT CURRENT_TIMESTAMP(),
         PRIMARY KEY (IdUsuario)
     );
 
@@ -36,7 +37,7 @@ CREATE TABLE
 CREATE TABLE
     Venda (
         IdVenda INT NOT NULL AUTO_INCREMENT,
-        DataVenda DATE,
+        DataVenda DATETIME DEFAULT CURRENT_TIMESTAMP(),
         Total DOUBLE,
         IdUsuario INT,
         IdCliente INT,
@@ -63,7 +64,7 @@ CREATE TABLE
     Fornecedor (
         IdFornecedor INT NOT NULL AUTO_INCREMENT,
         NomeFornecedor VARCHAR(45),
-        DataCadastro DATE,
+        DataCadastro DATETIME DEFAULT CURRENT_TIMESTAMP(),
         Situacao VARCHAR(10),
         CNPJ VARCHAR(14),
         PRIMARY KEY (IdFornecedor)
@@ -74,7 +75,7 @@ CREATE TABLE
         IdPedido INT NOT NULL AUTO_INCREMENT,
         IdProduto INT,
         IdFornecedor INT,
-        DataEntrega DATE,
+        DataEntrega DATETIME,
         Situacao VARCHAR(45),
         PRIMARY KEY(IdPedido),
         FOREIGN KEY (IdProduto) REFERENCES Produto (IdProduto),

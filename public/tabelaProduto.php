@@ -1,5 +1,4 @@
 <?php
-require_once("header.php");
 
 require_once('config/connect.php');
 
@@ -11,6 +10,7 @@ if (isset($_GET['busca'])) {
     $sql_code = "SELECT * FROM Produto ORDER BY IdProduto";
     $sql_query = $conn->query($sql_code) or die("ERRO ao consultar! " . $conn->errorInfo());
 }
+require_once("header.php");
 ?>
 
 <link rel="stylesheet" href="assets\css\tabela.css" />
@@ -91,6 +91,7 @@ if (isset($_GET['busca'])) {
                                 <?php echo $data['Nome']; ?>
                             </td>
                             <td scope="row" style="text-align:center">
+                                R$
                                 <?php echo $data['Preco']; ?>
                             </td>
                             <td scope="row" style="text-align:center">
