@@ -114,7 +114,7 @@ session_start();
                         <a href="">
                             <li>Estoque</li>
                         </a>
-                        <a href="">
+                        <a href="cliente.php">
                             <li>Clientes</li>
                         </a>
                         <a href="fornecedor.php">
