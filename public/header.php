@@ -26,7 +26,7 @@ session_start();
             <!-- menu lateral -->
             <div class="menu">
                 <button class="btn-menu-open" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                    aria-controls="offcanvasRight"><i class="fas fa-bars" fill="currentColor"></i></button>
+                    aria-controls="offcanvasRight"><i class="fas fa-bars" id="icon-menu" fill="currentColor"></i></button>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
                     aria-labelledby="offcanvasRightLabel">
                     <div class="offcanvas-header">
@@ -87,10 +87,10 @@ session_start();
                                     aria-expanded="false">
                                     <img src="assets/imgs/avatar.jpg" alt="Avatar perfil">
                                     Bem vindo
-                                    <?php echo $_SESSION['Nome']; ?> !
+                                    <?php echo ucwords(($_SESSION["Nome"])); ?> !
                                 </button>
                                 <ul class="dropdown-menu drop">
-                                    <li><a class="dropdown-item" href="perfil.php">Peril</a></li>
+                                    <li><a class="dropdown-item" href="perfil.php">Perfil</a></li>
                                     <li class="btn-sair"><a class="dropdown-item " href="logout.php">
                                             <div class="">
                                                 <span>Sair</span>
@@ -131,10 +131,10 @@ session_start();
             <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="assets/imgs/avatar.jpg" alt="Avatar perfil">
                 Bem vindo
-                <?php echo $_SESSION['Nome']; ?> !
+                <?php echo ucwords(($_SESSION["Nome"])); ?> !
             </button>
             <ul class="dropdown-menu drop">
-                <li><a class="dropdown-item" href="perfil.php">Peril</a></li>
+                <li><a class="dropdown-item" href="perfil.php">Perfil</a></li>
                 <li class="btn-sair"><a class="dropdown-item " href="logout.php">
                         <div class="">
                             <span>Sair</span>

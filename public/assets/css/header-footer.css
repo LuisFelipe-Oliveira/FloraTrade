@@ -104,15 +104,13 @@ a {
 }
 
 .btn-perfil {
-    padding: 0.3rem 1rem;
     display: flex;
     flex-direction: column;
     float: right;
     border: 0.3rem solid var(--color-green);
     border-radius: 3rem;
-    margin-right: 1.2rem;
+    margin-right: 1rem;
 }
-
 
 button{
     border: none;
@@ -122,14 +120,9 @@ button{
     width: 15rem;
 }
 
-
 .btn-perfil-responsive {
     display: none;
 }
-
-
-
-
 
 /* menu lateral */
 .menu {
@@ -192,7 +185,7 @@ button{
 
 }
 
-i {
+#icon-menu {
     /* icone menu */
     float: right;
 }

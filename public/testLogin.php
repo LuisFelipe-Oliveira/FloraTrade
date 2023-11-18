@@ -31,6 +31,8 @@
                 $_SESSION["loggedin"] = true;
                 $_SESSION['Email'] = $row['Email'];
                 $_SESSION['Nome'] = $row['Nome'];
+                $_SESSION['Telefone'] = $row['Telefone'];
+                $_SESSION['DataCriacao'] = $row['DataCriacao'];
                 $_SESSION['Senha'] = $senha;
                 header('Location: index.php');
             }

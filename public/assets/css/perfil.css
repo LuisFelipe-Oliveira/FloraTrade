@@ -1,0 +1,33 @@
+.perfil{
+    display: flex;
+    margin-top: 0.5rem;
+}
+
+.titulo{
+    margin-left: 0.7rem;
+    margin-bottom: 0.2rem;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.img-perfil img{
+    margin-top: 2.1rem;
+    width: 11rem;
+    height: 11rem;
+    border-radius: 50%;
+  }
+  
+.img-perfil{
+    padding-right: 2.7rem;
+    margin-left: 2.3rem;
+}
+
+.container1 {
+	background-color: #fff;
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
