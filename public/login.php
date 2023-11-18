@@ -88,13 +88,13 @@ if (isset($_POST["enviar"])) {
     <a href="index.php" ><img  src="assets/imgs/Logo.png" alt=""></a>
     </div>
     <?php
-        if (!is_null($flag_msg)) {
-            if ($flag_msg) {
-                echo "<div class='alert alert-success' role='alert' ></div></div></div>$msg</div>";
-            } else {
-                echo "<div class='alert alert-warning' role='alert'>$msg</div>";
-            }
-        }
+        // if (!is_null($flag_msg)) {
+        //     if ($flag_msg) {
+        //         echo "<div class='alert alert-success' role='alert' ></div></div></div>$msg</div>";
+        //     } else {
+        //         echo "<div class='alert alert-warning' role='alert'>$msg</div>";
+        //     }
+        // }
         ?>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
