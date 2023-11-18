@@ -14,12 +14,14 @@ if(isset($_POST['enviar'])) {
 
         require_once('config/connect.php');
 
-        $mysql_query = "INSERT INTO fornecedor (NomeFornecedor, CNPJ, Situacao)
-                                    VALUES ('{$nome}', '{$cnpj}', '{$situacao}')";
+        $insert_query = "INSERT INTO fornecedor (NomeFornecedor, CNPJ, Situacao) 
+                        VALUES (:nome, :cnpj, :situacao)";
+        $insert_stmt = $conn->prepare($insert_query);
+        $insert_stmt->bindParam(':nome', $nome);
+        $insert_stmt->bindParam(':cnpj', $cnpj);
+        $insert_stmt->bindParam(':situacao', $situacao);
 
-        $result = $conn->query($mysql_query);
-
-        if($result === true) {
+        if($insert_stmt->execute()) {
             $msg = "insert success";
             $msgerror = "";
         } else {
