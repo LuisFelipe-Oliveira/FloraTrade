@@ -26,7 +26,8 @@ session_start();
             <!-- menu lateral -->
             <div class="menu">
                 <button class="btn-menu-open" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                    aria-controls="offcanvasRight"><i class="fas fa-bars" id="icon-menu" fill="currentColor"></i></button>
+                    aria-controls="offcanvasRight"><i class="fas fa-bars" id="icon-menu"
+                        fill="currentColor"></i></button>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
                     aria-labelledby="offcanvasRightLabel">
                     <div class="offcanvas-header">
@@ -59,7 +60,7 @@ session_start();
                                     <li>Fornecedores</li>
                                 </a>
                                 <a onclick="error()">
-                                    <li>Contatos</li>
+                                    <li>Pedidos</li>
                                 </a>
                             </ul>
                         </div>
@@ -119,8 +120,8 @@ session_start();
                         <a href="fornecedor.php">
                             <li>Fornecedores</li>
                         </a>
-                        <a href="">
-                            <li>Contatos</li>
+                        <a href="tabelaPedido.php">
+                            <li>Pedidos</li>
                         </a>
                     </ul>
                 </div>
@@ -176,6 +177,8 @@ session_start();
             echo "<div class='alert alert-danger' role='alert'>Falha ao excluir o registro! {$msgerror}</div>";
         } else if ($msg == 'invalid cnpj') {
             echo "<div class='alert alert-danger' role='alert'>CNPJ deve conter 14 números! {$msgerror}</div>";
+        } else if ($msg == 'invalid IDs') {
+            echo "<div class='alert alert-danger' role='alert'>Informe um ID de fornecedor ou produto existente! {$msgerror}</div>";
         } else {
             echo "<div class='alert alert-warning' role='alert'>{$msgerror}</div>";
         }

@@ -75,7 +75,7 @@ CREATE TABLE
         IdPedido INT NOT NULL AUTO_INCREMENT,
         IdProduto INT,
         IdFornecedor INT,
-        DataEntrega DATETIME,
+        DataEntrega DATETIME DEFAULT CURRENT_TIMESTAMP(),
         Situacao VARCHAR(45),
         PRIMARY KEY(IdPedido),
         FOREIGN KEY (IdProduto) REFERENCES Produto (IdProduto),
