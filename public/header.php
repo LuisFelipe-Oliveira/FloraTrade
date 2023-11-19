@@ -123,6 +123,9 @@ session_start();
                         <a href="tabelaPedido.php">
                             <li>Pedidos</li>
                         </a>
+                        <a href="tabelaVenda.php">
+                            <li>Vendas</li>
+                        </a>
                     </ul>
                 </div>
             </div>

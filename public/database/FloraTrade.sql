@@ -53,7 +53,7 @@ CREATE TABLE
         Quantidade INT,
         ValorUnitario DOUBLE,
         Desconto DOUBLE,
-        Subtotal DOUBLE,
+        Subtotal DECIMAL(10, 2) GENERATED ALWAYS AS (valorUnitario * Quantidade - Desconto) STORED,
         IdProduto INT,
         IdVenda INT,
         PRIMARY KEY (IdItemVenda),
