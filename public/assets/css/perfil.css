@@ -1,3 +1,7 @@
+:root{
+    --color-green: #528265;
+}
+
 .perfil{
     display: flex;
     margin-top: 0.5rem;
@@ -15,11 +19,18 @@
     width: 11rem;
     height: 11rem;
     border-radius: 50%;
+    margin-bottom: 1.2rem;
+    margin-left: 1rem;
+    border: var(--color-green) 3px solid;
+    
   }
   
 .img-perfil{
+    display: flex;
+    flex-direction: column;
     padding-right: 2.7rem;
-    margin-left: 2.3rem;
+    margin-left: 1.5rem;
+    max-width: 20%;
 }
 
 .container1 {

@@ -21,6 +21,7 @@ CREATE TABLE
         Telefone VARCHAR(11) NOT NULL,
         Email VARCHAR(60) NOT NULL,
         SENHA VARCHAR(60) NOT NULL,
+        FotoPerfil VARCHAR(255) DEFAULT "./assets/imgs/avatar.png",
         DataCriacao DATETIME DEFAULT CURRENT_TIMESTAMP(),
         PRIMARY KEY (IdUsuario)
     );

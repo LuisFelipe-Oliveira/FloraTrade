@@ -30,9 +30,11 @@
             foreach($result as $row){
                 $_SESSION["loggedin"] = true;
                 $_SESSION['Email'] = $row['Email'];
+                $_SESSION['Id'] = $row['IdUsuario'];
                 $_SESSION['Nome'] = $row['Nome'];
                 $_SESSION['Telefone'] = $row['Telefone'];
                 $_SESSION['DataCriacao'] = $row['DataCriacao'];
+                $_SESSION['FotoPerfil'] = $row['FotoPerfil'];
                 $_SESSION['Senha'] = $senha;
                 header('Location: index.php');
             }

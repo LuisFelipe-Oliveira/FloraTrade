@@ -125,7 +125,7 @@
         <div class="item">
             <img class="imgDev" src="assets/imgs/joao-perfil.jpg" alt="Foto do Perfil de Jõao Colonna">
             <div>
-                <h1>Jõao Colonna</h1>
+                <h1>João Colonna</h1>
                 <h5>19 anos</h5>
                 <h4>Estudante de Análise e Desenvolvimento na Fatec Presidente Prudente</h4>
                 <h4>Programador PHP</h4>
