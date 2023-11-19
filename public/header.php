@@ -86,7 +86,17 @@ session_start();
                             <div>
                                 <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                    <img src="assets/imgs/avatar.jpg" alt="Avatar perfil">
+                                    <!-- <img src="assets/imgs/avatar.jpg" alt="Avatar perfil"> -->
+                                    <?php
+                                    $foto = $_SESSION["FotoPerfil"];
+                                    $timestamp = time(); // Adiciona um timestamp único para evitar o cache
+                                    $intervalo = 5; // Intervalo em segundos
+                                
+                                    // Calcula um múltiplo de 30 segundos para garantir uma atualização periódica
+                                    $timestamp_atualizado = $intervalo * floor($timestamp / $intervalo);
+
+                                    echo "<img src='$foto?timestamp=$timestamp_atualizado' alt='Foto de Perfil'>";
+                                    ?>
                                     Bem vindo
                                     <?php echo ucwords(($_SESSION["Nome"])); ?> !
                                 </button>
@@ -133,7 +143,17 @@ session_start();
         <!-- botões de login -->
         <div class="btn-perfil">
             <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="assets/imgs/avatar.jpg" alt="Avatar perfil">
+                <!-- <img src="assets/imgs/avatar.jpg" alt="Avatar perfil"> -->
+                <?php
+                $foto = $_SESSION["FotoPerfil"];
+                $timestamp = time(); // Adiciona um timestamp único para evitar o cache
+                $intervalo = 5; // Intervalo em segundos
+            
+                // Calcula um múltiplo de 30 segundos para garantir uma atualização periódica
+                $timestamp_atualizado = $intervalo * floor($timestamp / $intervalo);
+
+                echo "<img src='$foto?timestamp=$timestamp_atualizado' alt='Foto de Perfil'>";
+                ?>
                 Bem vindo
                 <?php echo ucwords(($_SESSION["Nome"])); ?> !
             </button>

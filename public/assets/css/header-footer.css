@@ -101,6 +101,10 @@ a {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 4rem;
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
 }
 
 .btn-perfil {

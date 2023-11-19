@@ -22,7 +22,10 @@
     margin-bottom: 1.2rem;
     margin-left: 1rem;
     border: var(--color-green) 3px solid;
-    
+    object-fit: cover;
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
   }
   
 .img-perfil{
