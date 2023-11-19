@@ -179,6 +179,8 @@ session_start();
             echo "<div class='alert alert-danger' role='alert'>CNPJ deve conter 14 números! {$msgerror}</div>";
         } else if ($msg == 'invalid IDs') {
             echo "<div class='alert alert-danger' role='alert'>Informe um ID de fornecedor ou produto existente! {$msgerror}</div>";
+        } else if ($msg == 'invalid situacao') {
+            echo "<div class='alert alert-danger' role='alert'>Situação do fornecedor é inativo! {$msgerror}</div>";
         } else {
             echo "<div class='alert alert-warning' role='alert'>{$msgerror}</div>";
         }

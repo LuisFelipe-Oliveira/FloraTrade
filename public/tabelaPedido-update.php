@@ -70,9 +70,12 @@ require("header.php");
       <input type="text" name="IdProduto" id="IdProduto" class="form-control"
         value="<?php echo $pedido['IdProduto']; ?>" required><br>
 
-      <label for="situacao">Situação</label>
-      <input type="text" name="situacao" id="situacao" class="form-control" value="<?php echo $pedido['Situacao']; ?>"
-        required><br>
+      <label for="situacao">&nbsp;Situação</label>
+      <select name="situacao" id="situacao" class="form-control" required>
+        <option value="aprovado">Aprovado</option>
+        <option value="cancelado">Cancelado</option>
+        <option value="analisando">Analisando</option>
+      </select><br>
 
       <div class="buttons-tabelas">
         <a href="tabelaPedido.php"><button type="button" class="btn btn-danger btn-tamanho">Cancelar</button></a>

@@ -10,7 +10,7 @@ if(isset($_POST['enviar'])) {
         $msgerror = "";
     } else {
         $nome = $_POST['nome'];
-        $situacao = $_POST['situação'];
+        $situacao = $_POST['situacao'];
 
         require_once('config/connect.php');
 
@@ -51,8 +51,11 @@ require("header.php");
 			<input type="text" name="nome" id="nome" class="form-control" required><br>
 			<label for="cnpj">&nbsp;CNPJ</label>
 			<input type="text" name="cnpj" id="cnpj" class="form-control" required><br>
-			<label for="situação">&nbsp;Situação</label>
-			<input type="text" name="situação" id="situação" class="form-control" required><br>
+			<label for="situacao">&nbsp;Situação</label>
+            <select name="situacao" id="situacao" class="form-control" required>
+                <option value="ativo">Ativo</option>
+                <option value="inativo">Inativo</option>
+            </select><br>
             <div class="buttons-tabelas">
                 <a href="fornecedor.php"><button type="button"
                         class="btn btn-danger btn-tamanho">Cancelar</button></a>

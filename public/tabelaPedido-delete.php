@@ -70,7 +70,7 @@ require("header.php");
             <label for="situação">&nbsp;Situação</label>
             <input type="text" name="situação" id="situação" class="form-control" readonly value="<?= $pedidoDetails['Situacao']; ?>"><br>
             <div class="buttons-tabelas">
-                <a href="tabelaPedidos.php"><button type="button"
+                <a href="tabelaPedido.php"><button type="button"
                     class="btn btn-danger btn-tamanho">Cancelar</button></a>
                 <input type="submit" name="enviar" value="Excluir" class="btn btn-primary btn-tamanho">
             </div>

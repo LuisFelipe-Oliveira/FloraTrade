@@ -73,7 +73,10 @@ require("header.php");
             <input type="text" name="cnpj" id="cnpj" class="form-control" value="<?php echo $fornecedor['CNPJ']; ?>" required><br>
 
             <label for="situacao">Situação</label>
-            <input type="text" name="situacao" id="situacao" class="form-control" value="<?php echo $fornecedor['Situacao']; ?>" required><br>
+            <select name="situacao" id="situacao" class="form-control" required>
+                <option value="ativo">Ativo</option>
+                <option value="inativo">Inativo</option>
+            </select><br>
 
             <div class="buttons-tabelas">
                 <a href="fornecedor.php"><button type="button"

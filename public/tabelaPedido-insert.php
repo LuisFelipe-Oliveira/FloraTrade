@@ -28,19 +28,32 @@ if (isset($_POST['enviar'])) {
     } else {
       $situacao = $_POST['situação']; // Corrigido para 'situação'
 
-      $insert_query = "INSERT INTO pedido (IdFornecedor, IdProduto, Situacao) 
-                              VALUES (:IdFornecedor, :IdProduto, :situacao)";
-      $insert_stmt = $conn->prepare($insert_query);
-      $insert_stmt->bindParam(':IdFornecedor', $IdFornecedor);
-      $insert_stmt->bindParam(':IdProduto', $IdProduto);
-      $insert_stmt->bindParam(':situacao', $situacao);
+      $querySitFornecedor = "SELECT Situacao FROM fornecedor WHERE IdFornecedor = :IdFornecedor";
+      $stmtSitFornecedor = $conn->prepare($querySitFornecedor);
+      $stmtSitFornecedor->bindParam(':IdFornecedor', $IdFornecedor);
+      $stmtSitFornecedor->execute();
 
-      if ($insert_stmt->execute()) {
-        $msg = "insert success";
+      $resultSitFornecedor = $stmtSitFornecedor->fetch(PDO::FETCH_ASSOC);
+      $situacaoFornecedor = $resultSitFornecedor['Situacao'];
+
+      if ($situacaoFornecedor === "inativo") {
+        $msg = "invalid situacao";
         $msgerror = "";
       } else {
-        $msg = "insert error";
-        $msgerror = $conn->errorInfo()[2];
+        $insert_query = "INSERT INTO pedido (IdFornecedor, IdProduto, Situacao) 
+                                VALUES (:IdFornecedor, :IdProduto, :situacao)";
+        $insert_stmt = $conn->prepare($insert_query);
+        $insert_stmt->bindParam(':IdFornecedor', $IdFornecedor);
+        $insert_stmt->bindParam(':IdProduto', $IdProduto);
+        $insert_stmt->bindParam(':situacao', $situacao);
+
+        if ($insert_stmt->execute()) {
+          $msg = "insert success";
+          $msgerror = "";
+        } else {
+          $msg = "insert error";
+          $msgerror = $conn->errorInfo()[2];
+        }
       }
     }
 
