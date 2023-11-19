@@ -28,7 +28,7 @@ if (isset($_GET['id'])) {
             if ($delete_stmt->execute()) {
                 $msg = "delete success";
                 $msgerror = "";
-                header("Location: tabelaProduto.php");
+                header("Location: tabelaProduto.php?msg={$msg}&msgerror={$msgerror}");
                 exit();
             } else {
                 $msg = "";
@@ -49,6 +49,7 @@ if (isset($_GET['id'])) {
     header("Location: tabelaProduto.php?msg=&msgerror=ID do produtos não fornecido.");
     exit();
 }
+
 require("header.php");
 ?>
 <link rel="stylesheet" href="assets\css\tabela.css" />

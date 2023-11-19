@@ -73,11 +73,13 @@ require_once("header.php");
                     <th scope="col" style="width: 15%;">Quantidade</th>
                     <th scope="col" style="width: 20%;">Editar / Excluir</th>
                 </tr>
+            </thead>
+            <tbody>
                 <?php
                 if ($sql_query->rowCount() == 0) {
                     ?>
                     <tr>
-                        <td colspan="3">Nenhum produto encontrado com esse nome...</td>
+                        <td colspan="6">Nenhum produto encontrado com esse nome...</td>
                     </tr>
                     <?php
                 } else {
@@ -92,7 +94,7 @@ require_once("header.php");
                             </td>
                             <td scope="row" style="text-align:center">
                                 R$
-                                <?php echo $data['Preco']; ?>
+                                <?php echo number_format($data['Preco'], 2, ',', '.'); ?>
                             </td>
                             <td scope="row" style="text-align:center">
                                 <?php echo $data['Quantidade']; ?>
@@ -123,11 +125,9 @@ require_once("header.php");
                                         </svg></button></a>
                             </td>
                         </tr>
-                        <?php
-                    }
-                }
-                ?>
-            </thead>
+                    <?php }
+                } ?>
+            </tbody>
         </table>
     </div>
 

@@ -10,16 +10,19 @@ if (isset($_POST['enviar'])) {
 
     require_once('config/connect.php');
 
-    $mysql_query = "INSERT INTO Produto (Nome, Preco, Quantidade)
-                                VALUES ('{$nome}', '{$preco}', '{$quantidade}')";
+    $insert_query = "INSERT INTO Produto (Nome, Preco, Quantidade) 
+                        VALUES (:nome, :preco, :quantidade)";
+    $insert_stmt = $conn->prepare($insert_query);
+    $insert_stmt->bindParam(':nome', $nome);
+    $insert_stmt->bindParam(':preco', $preco);
+    $insert_stmt->bindParam(':quantidade', $quantidade);
 
-    $result = $conn->query($mysql_query);
 
-    if ($result === true) {
+    if ($insert_stmt->execute()) {
         $msg = "insert success";
         $msgerror = "";
     } else {
-        $msg = "";
+        $msg = "insert error";
         $msgerror = $conn->errorInfo()[2];
     }
 
