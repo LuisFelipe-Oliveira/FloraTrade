@@ -23,6 +23,8 @@ CREATE TABLE
         SENHA VARCHAR(60) NOT NULL,
         FotoPerfil VARCHAR(255) DEFAULT "./assets/imgs/avatar.png",
         DataCriacao DATETIME DEFAULT CURRENT_TIMESTAMP(),
+        token VARCHAR(255),
+        timetoken int,
         PRIMARY KEY (IdUsuario)
     );
 

@@ -124,7 +124,7 @@ if (isset($_POST["enviar"])) {
                 <br>
                 <input type="text" name="Email" placeholder="E-mail"required />
                 <input type="password" name="Senha" placeholder="Senha" required/>
-                <a href="senha1.php">Esqueceu sua senha?</a>
+                <a href="./forgot-password/forgot-password.php">Esqueceu sua senha?</a>
                 <button name="submit">Entre</button>
                 <p class="mobile-text">Não tem conta?
                     <a href="#" id="signUp2">Cadastre-se</a>
