@@ -21,7 +21,7 @@ CREATE TABLE
         Telefone VARCHAR(11) NOT NULL,
         Email VARCHAR(60) NOT NULL,
         SENHA VARCHAR(60) NOT NULL,
-        FotoPerfil VARCHAR(255) DEFAULT "./assets/imgs/avatar.png",
+        FotoPerfil VARCHAR(255) DEFAULT "./assets/imgs/imgsUpload/avatar.jpg",
         DataCriacao DATETIME DEFAULT CURRENT_TIMESTAMP(),
         PRIMARY KEY (IdUsuario)
     );
@@ -53,7 +53,9 @@ CREATE TABLE
         Quantidade INT,
         ValorUnitario DOUBLE,
         Desconto DOUBLE,
-        Subtotal DECIMAL(10, 2) GENERATED ALWAYS AS (valorUnitario * Quantidade - Desconto) STORED,
+        Subtotal DECIMAL(10, 2) GENERATED ALWAYS AS (
+            valorUnitario * Quantidade - Desconto
+        ) STORED,
         IdProduto INT,
         IdVenda INT,
         PRIMARY KEY (IdItemVenda),
