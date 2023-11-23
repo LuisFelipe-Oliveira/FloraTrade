@@ -13,7 +13,9 @@
 .Centraliza {
   padding: 1.5rem 2rem 0.5rem 2rem;
 }
-
+p {
+  font-size: 1.25rem;
+}
 .Color {
   width: 100%;
   height: 100%;
