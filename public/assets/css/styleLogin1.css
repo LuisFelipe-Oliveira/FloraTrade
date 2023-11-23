@@ -249,6 +249,13 @@ input {
 	display: none;
 }
 
+.aviso{
+	color: red;
+}
+.avisoSucesso{
+	color: green;
+}
+
 /* versão mobile */
 
 @media (max-width: 880px){

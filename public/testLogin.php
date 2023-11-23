@@ -24,8 +24,8 @@
         if (count($result) < 1){
             unset($_SESSION['Email']);
             unset($_SESSION['Senha']);
-            header('Location: login.php');
             $msg = "invalido";
+            header("Location: login.php?msg={$msg}&msgerror={$msgerror}");
         }else{
             foreach($result as $row){
                 $_SESSION["loggedin"] = true;
