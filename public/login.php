@@ -11,8 +11,7 @@ if (isset($_POST["enviar"])) {
 
     $nome = $_POST["Nome"];
     $email = $_POST["Email"];
-    $senha = md5($_POST["Senha"]);
-    // $conf_senha = md5($_POST["Conf_Senha"]);
+    $senha = $_POST["Senha"];
     $telefone = $_POST["Telefone"];
     $tipo = 2;
 
@@ -28,50 +27,64 @@ if (isset($_POST["enviar"])) {
 
     if ($aux > 0) {
         $flag_msg = false;
-        $msg = "preencha todos os campos!";
+        $msg = "Preencha todos os campos!";
     } else {
+        $conf_senha = $_POST["Conf_Senha"];
 
-        // $senha_encrypt = md5($senha);
-
-        try {
-
-            $sql = "INSERT INTO Usuario(Nome,Email,Senha,Telefone) 
-            VALUES (:Nome,:Email,:Senha,:Telefone)";
-
-            $stmt = $conn->prepare($sql);
-
-            $stmt->bindParam(":Nome", $nome);
-            $stmt->bindParam(":Email", $email);
-            $stmt->bindParam(":Senha", $senha);
-            $stmt->bindParam(":Telefone", $telefone);
-
-            $stmt->execute();
-
-            if (!isset($_SESSION['usuario'])) {
-                $msg = "sucesso";
-                header("Location: login.php?msg={$msg}&msgerror={$msgerror}"); // Redireciona para a página de login
-                exit();
-            }
-
-            $flag_msg = true; // Sucesso 
-            $msg = "sucesso";
+        // Verificar se as senhas são iguais
+        if ($senha != $conf_senha) {
+            $flag_msg = false;
+            $msg = "As senhas não coincidem.";
             header("Location: login.php?msg={$msg}&msgerror={$msgerror}");
+        } else {
+            // Verificar se o e-mail já está cadastrado
+            $sql_check_email = "SELECT IdUsuario FROM Usuario WHERE Email = :Email";
+            $stmt_check_email = $conn->prepare($sql_check_email);
+            $stmt_check_email->bindParam(":Email", $email);
+            $stmt_check_email->execute();
 
+            if ($stmt_check_email->rowCount() > 0) {
+                $flag_msg = false;
+                $msg = "Este e-mail já está cadastrado.";
+                header("Location: login.php?msg={$msg}&msgerror={$msgerror}");
+            } else {
+                // Inserir usuário no banco de dados com senha hash
+                try {
+                    $hashed_password = password_hash($senha, PASSWORD_DEFAULT);
 
-        } catch (PDOException $th) {
-            $conn = null;
+                    $sql = "INSERT INTO Usuario(Nome, Email, Senha, Telefone) 
+                            VALUES (:Nome, :Email, :Senha, :Telefone)";
+                    $stmt = $conn->prepare($sql);
 
-            $flag_msg = false; //Erro 
-            $msg = "Erro na conexão com o Banco de dados: " . $th->getMessage();
+                    $stmt->bindParam(":Nome", $nome);
+                    $stmt->bindParam(":Email", $email);
+                    $stmt->bindParam(":Senha", $hashed_password);
+                    $stmt->bindParam(":Telefone", $telefone);
 
+                    $stmt->execute();
+
+                    if (!isset($_SESSION['usuario'])) {
+                        $msg = "Sucesso";
+                        header("Location: login.php?msg={$msg}&msgerror={$msgerror}"); // Redireciona para a página de login
+                        exit();
+                    }
+
+                    $flag_msg = true; // Sucesso 
+                    $msg = "Sucesso";
+                    header("Location: login.php?msg={$msg}&msgerror={$msgerror}");
+
+                } catch (PDOException $th) {
+                    $flag_msg = false; // Erro 
+                    $msg = "Erro na conexão com o Banco de dados: " . $th->getMessage();
+                }
+            }
         }
     }
 
-
     $conn = null;
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -107,8 +120,14 @@ if (isset($_POST["enviar"])) {
                 <?php if (isset($_GET['msg'])) {
                     $msg = $_GET['msg'];
                     $msgerror = $_GET['msgerror'];
-                    if ($msg == 'sucesso') {
+                    if ($msg == 'Sucesso') {
                         echo "<div class='avisoSucesso' role='alert'>Conta criada com sucesso!</div>";
+                    }
+                    if ($msg == 'Este e-mail já está cadastrado.') {
+                        echo "<div class='aviso' role='alert'>Este e-mail já está cadastrado.</div>";
+                    }
+                    if ($msg == 'As senhas não coincidem.'){
+                        echo "<div class='aviso' role='alert'>As senhas não coincidem!</div>";
                     }
                 }
                 ?>

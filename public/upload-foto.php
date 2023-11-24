@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Move o arquivo para o diretório de destino
     move_uploaded_file($_FILES['foto']['tmp_name'], $caminho_arquivo);
 
-    $id = ($_SESSION["Id"]);
+    $id = ($_SESSION['Id']);
 
     // Salva o caminho da imagem no banco de dados
     // Substitua as variáveis de conexão e query de acordo com o seu banco de dados
@@ -32,7 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $insert_img->execute();
     $insert_img->closeCursor();
     $conn = null;
+    $_SESSION['FotoPerfil'] = $caminho_arquivo;
     header("Location: perfil.php");
+
 }   
 
 ?>

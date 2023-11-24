@@ -53,18 +53,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (atualizarSenhaNoBanco($conn, $token, $novaSenha)) {
             // Senha atualizada com sucesso
             $msg = "changed password";
-            header("Location: ../login.php?msg={$msg}");
+            $msgerror = "";
+            header("Location: ../login.php?msg={$msg}&msgerror={$msgerror}");
             exit();
         } else {
             // Falha na atualização da senha, redirecione para uma página de erro
-            error_log("Falha na atualização da senha");
-            header("Location: change-password.php");
+            $msg = "update error";
+            $msgerror = "";
+            header("Location: change-password.php?msg={$msg}&msgerror={$msgerror}");
             exit();
         }
     } else {
         // Senhas diferentes
-        error_log("Senhas diferentes");
-        header("Location: change-password.php");
+        $msg = "different password";
+        $msgerror = "";
+        header("Location: change-password.php?msg={$msg}&msgerror={$msgerror}");
         exit();
     }
    

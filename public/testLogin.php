@@ -1,52 +1,44 @@
-<?php 
+<?php
 
-// login
+session_start();
 
-    session_start();
+if (isset($_POST['submit']) && !empty($_POST['Email']) && !empty($_POST['Senha'])) {
+    // Acessa
+    include_once('./config/connect.php');
 
-    if(isset($_POST['submit']) && !empty($_POST['Email']) && !empty($_POST['Senha'])){
-        //Acessa
+    $email = $_POST['Email'];
+    $senha = $_POST['Senha'];
 
-        include_once('./config/connect.php');
+    $sql = "SELECT * FROM `Usuario` WHERE Email = :email";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
 
-        $email = $_POST['Email'];
-        $senha = md5($_POST['Senha']);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $sql = "SELECT * FROM `Usuario` WHERE Email = '$email' AND Senha = '$senha'";
+    //error_log($result);
+    //error_log(password_verify($senha, $result['Senha']));
 
-        $nome = $_POST['Nome'];
-        $stmt = $conn->prepare($sql);
-
-        $stmt->execute();
-
-        $result = $stmt->fetchAll();
-
-        if (count($result) < 1){
-            unset($_SESSION['Email']);
-            unset($_SESSION['Senha']);
-            $msg = "invalido";
-            header("Location: login.php?msg={$msg}&msgerror={$msgerror}");
-        }else{
-            foreach($result as $row){
-                $_SESSION["loggedin"] = true;
-                $_SESSION['Email'] = $row['Email'];
-                $_SESSION['Id'] = $row['IdUsuario'];
-                $_SESSION['Nome'] = $row['Nome'];
-                $_SESSION['Telefone'] = $row['Telefone'];
-                $_SESSION['DataCriacao'] = $row['DataCriacao'];
-                $_SESSION['FotoPerfil'] = $row['FotoPerfil'];
-                $_SESSION['Senha'] = $senha;
-                header('Location: index.php');
-            }
-        }
+    if (!$result || !password_verify($senha, $result['SENHA'])) {
+        unset($_SESSION['Email']);
+        unset($_SESSION['Senha']);
+        $msg = "invalido";
+        header("Location: login.php?msg={$msg}&msgerror={$msgerror}");
+    } else {
+            $_SESSION["loggedin"] = true;
+            $_SESSION['Email'] = $result['Email'];
+            $_SESSION['Id'] = $result['IdUsuario'];
+            $_SESSION['Nome'] = $result['Nome'];
+            $_SESSION['Telefone'] = $result['Telefone'];
+            $_SESSION['DataCriacao'] = $result['DataCriacao'];
+            $_SESSION['FotoPerfil'] = $result['FotoPerfil'];
+            $_SESSION['Senha'] = $senha;
+            header('Location: index.php');
         
     }
-    else{
-        //Não acessa
-        $msg = "invalido";
-        header('Location: login.php');
-    }
-
-
-
+} else {
+    // Não acessa
+    $msg = "invalido";
+    header('Location: login.php');
+}
 ?>

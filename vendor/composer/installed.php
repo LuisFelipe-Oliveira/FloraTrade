@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
-        'name' => 'xfeli/flora-trade',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => 'f8c0060bbc0a3defb963ef2c20f4f73794d2612e',
+        'name' => 'user/flora-trade-main',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => NULL,
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -43,10 +43,10 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'xfeli/flora-trade' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => 'f8c0060bbc0a3defb963ef2c20f4f73794d2612e',
+        'user/flora-trade-main' => array(
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => NULL,
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -44,10 +44,10 @@ function tokenEhValido($conn, $token) {
 }
 
 function atualizarSenhaNoBanco($conn, $token, $novaSenha) {
-    $senha = md5($novaSenha);
+    $hashed_password = password_hash($novaSenha, PASSWORD_DEFAULT);
     $sql_code = "UPDATE usuario SET senha = :senha where token = :token";
     $stmt = $conn->prepare($sql_code);
-    $stmt->bindParam(":senha", $senha, PDO::PARAM_STR);
+    $stmt->bindParam(":senha", $hashed_password, PDO::PARAM_STR);
     $stmt->bindParam(":token", $token, PDO::PARAM_STR);
 
     if ($stmt->execute()) {

@@ -1,16 +1,5 @@
 {
-    "name": "xfeli/flora-trade",
-    "autoload": {
-        "psr-4": {
-            "Xfeli\\FloraTrade\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "feliperogerio1",
-            "email": "xfeliperogeriox@gmail.com"
-        }
-    ],
+    "name": "user/flora-trade-main",
     "require": {
         "sendgrid/sendgrid": "^8.0"
     }
