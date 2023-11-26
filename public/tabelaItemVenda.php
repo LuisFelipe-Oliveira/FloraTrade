@@ -79,14 +79,30 @@ require('config/connect.php');
   }
 
 ?>
+<style>
+  .dados-venda {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #d4edda; /* Cor verde da classe table-success */
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+  }
+  .dados-venda label {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  .dados-venda label span {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+</style>
 
-
-<link rel="stylesheet" href="assets\css\tabela.css" />
+<link rel="stylesheet" href="assets\css\tabela.css"/>
 <div class="container">
   <h2>Informações da Venda</h2>
-  <p>Listagem de itens da Venda </p>
 
-  <table class="table table-striped table-bordered table-hover">
+  <!-- <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr class="table-success" style="text-align:center">
         <th scope="col" style="width: 5%; text-align:center">#</th>
@@ -105,9 +121,17 @@ require('config/connect.php');
         <td style="text-align:center"><?=selectCliente($conn,$data_venda['IdCliente'])?></td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
+  <div class="dados-venda">
+    <label><span>Id:</span><?=$data_venda['IdVenda']?></label>
+    <label><span>Data de Venda:</span><?=$data_venda['DataVenda']?></label>
+    <label><span>Total:</span>R$<?=number_format($data_venda['Total'], 2, ',', '.')?></label>
+    <label><span>Usuário:</span><?=selectUsuario($conn, $data_venda['IdUsuario'])?></label>
+    <label><span>Cliente:</span><?=selectCliente($conn,$data_venda['IdCliente'])?></label>
+</div>
+<br>
   <div class="float-right p-1">
-    
+  <h5>Listagem de itens da Venda </h5>
   </div>
   <table class="table table-striped table-bordered table-hover">
     <thead>

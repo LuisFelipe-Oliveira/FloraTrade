@@ -134,14 +134,18 @@
                 <h4>Programador PHP</h4>
                 <h4>Front-End</h4>
                 <div class="icons">
-                    <i class="devicon-javascript-plain colored"></i>
                     <i class="devicon-php-plain colored"></i>
-                    <i class="devicon-mysql-plain colored"></i>
+                    <i class="devicon-codeigniter-plain colored"></i>
+                    <i class="devicon-laravel-plain colored"></i>
+                    <i class="devicon-javascript-plain colored"></i>
+                    <i class="devicon-nodejs-plain colored"></i>
                     <i class="devicon-html5-plain colored"></i>
                     <i class="devicon-css3-plain colored"></i>
-                    <i class="devicon-bootstrap-plain colored"></i>
                     <i class="devicon-python-plain colored"></i>
                     <i class="devicon-csharp-plain colored"></i>
+                    <i class="devicon-bootstrap-plain colored"></i>
+                    <i class="devicon-mysql-plain colored"></i>
+                    <i class="devicon-git-plain colored"></i>
                 </div>
                 <a href="https://instagram.com/" target="_blank"><img
                         src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white"

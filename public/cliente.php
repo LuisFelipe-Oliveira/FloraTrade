@@ -16,6 +16,23 @@ if (isset($_GET['busca'])) {
   $stmt = $conn->prepare($mysql_query);
   $stmt->execute();
 }
+
+function formatarCPF($cpf) {
+  $parte1 = substr($cpf, 0, 3);
+  $parte2 = substr($cpf, 3, 3);
+  $parte3 = substr($cpf, 6, 3);
+  $parte4 = substr($cpf, 9, 2);
+
+  return "$parte1.$parte2.$parte3-$parte4";
+}
+
+function formatarTel($tel) {
+  $parte1 = substr($tel, 0, 2);
+  $parte2 = substr($tel, 3, 5);
+  $parte3 = substr($tel, 8, 4);
+
+  return "($parte1) $parte2-$parte3";
+}
 //echo $stmt->rowCount();
 
 $conn = null;
@@ -84,11 +101,11 @@ $conn = null;
           while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
     ?> 
       <tr> 
-        <th scope="row" style="text-align:center"><?=$data['IdCliente']; ?></th>
-        <td style="text-align:center"><?=$data['Nome']; ?></td> 
-        <td style="text-align:center"><?=$data['CPF']; ?></td> 
-        <td style="text-align:center"><?=$data['Telefone']?></td>
-        <td style="text-align:center"><?=$data['Email']; ?></td>
+        <th scope="row" style="text-align:center"><?=$data['IdCliente']?></th>
+        <td style="text-align:center"><?=$data['Nome']?></td> 
+        <td style="text-align:center" ><?=formatarCPF($data['CPF'])?></td> 
+        <td style="text-align:center"><?=formatarTel($data['Telefone'])?></td>
+        <td style="text-align:center"><?=$data['Email']?></td>
         <td style="text-align:center">
           <a href="cliente-update.php?id=<?=$data['IdCliente']; ?>">
           <button type="button" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg"height="1em" viewBox="0 0 512 512">
@@ -116,5 +133,5 @@ $conn = null;
     </tbody>
   </table>
 </div>
-
+<script src="assets/js/cliente.js"></script>
 <?php require("footer.php"); ?>

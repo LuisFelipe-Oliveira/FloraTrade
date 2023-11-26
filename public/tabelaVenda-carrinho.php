@@ -13,6 +13,7 @@ $stmt_cliente = $conn->prepare($sql_code_cliente);
 $stmt_cliente->execute(); */
 
 if(isset($_POST['enviar'])){
+
     //print_r($_POST);die;
     $idUsuario = $_POST['idUsuario'];
     $idCliente = $_POST['idCliente'];
@@ -33,7 +34,12 @@ if(isset($_POST['enviar'])){
 }
 
 if(isset($_POST['inserir'])){
-    //print_r($_POST);die;
+
+    $stms_produto_get = $conn->prepare("SELECT * FROM Produto");
+    if($stms_produto_get->execute()){
+        $data_produto = $stms_produto_get->fetch(PDO::FETCH_ASSOC);
+    }
+    
     $dataAtual = new DateTime();
     $dataFormatada = $dataAtual->format('Y-m-d');
 
@@ -65,6 +71,21 @@ if(isset($_POST['inserir'])){
             $stmt_itemVenda->execute();
 
             if($stmt_itemVenda->rowCount() > 0){
+                $newqtde = $data_produto['Quantidade'] - $item['quantidade'];
+
+                $sql = "UPDATE Produto SET Quantidade = :newqtde WHERE IdProduto = :idproduto";
+                $stmt_save_produto = $conn->prepare($sql);
+                $stmt_save_produto->bindParam(":newqtde",$newqtde);
+                $stmt_save_produto->bindParam(":idproduto",$key);
+
+                if( $stmt_save_produto->execute()){
+                    $msg = "insert success";
+                    $msgerror = "";
+                } else {
+                    $msg = "insert error";
+                    $msgerror = $conn->errorInfo()[2];
+                }
+
                 $msg = "insert success";
                 $msgerror = "";
             } else {
@@ -186,7 +207,9 @@ require_once("header.php");
             <td style="text-align:center">
                 <div class="text-right">
                     <a href="tabelaVenda.php"><button class="btn btn-danger" >Cancelar Compra</button></a>
+                    <a href="tabelaVenda-compra.php"><input type="button" class="btn btn-warning btn-tamanho" value="Retornar"></a>
                     <button class="btn btn-success" type="submit" name="inserir">Finalizar</button>
+                    
                 </div>
             </td>
         </tbody>
@@ -196,6 +219,7 @@ require_once("header.php");
 
   </div>
 </body>
+
 
 <?php
 $conn = null;

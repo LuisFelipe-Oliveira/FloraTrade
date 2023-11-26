@@ -36,11 +36,15 @@ require_once("header.php");
         <tbody>
             <tr>
                 <td>
-                    <select class="form-control" id="selectCliente" required>
+                    <select class="form-control" id="selectCliente" onchange="atualizarInputHidden()" required>
                         <option value="" style='text-align:center' disabled selected hidden>Escolha um Cliente</option>
                         <?php
-                        while ($data_cliente = $stmt_cliente->fetch(PDO::FETCH_ASSOC)) {
-                            echo "<option style='text-align:center' value='{$data_cliente['IdCliente']}'>{$data_cliente['Nome']}</option required>";
+                        while ($data_cliente = $stmt_cliente->fetch(PDO::FETCH_ASSOC)) { ?>
+                            <option style='text-align:center' name='IdCliente' value='<?=$data_cliente['IdCliente']?>'><?=$data_cliente['Nome']?>
+                              
+                            </option required>"
+                            <!-- //echo "<input type='hidden' name='idCliente' value='{$data_cliente['IdCliente']}'>"; -->
+                        <?php
                         }
                         ?>
                     </select>
@@ -73,15 +77,15 @@ require_once("header.php");
             <td style="text-align:center">R$ <?=number_format($data_produto['Preco'], 2, ',', '.')?></td>
             <td style="text-align:center"><?=$data_produto['Quantidade']?></td>
             <td style="text-align:center">
-                <input class="form-check-input" type="checkbox" name="produtosSelecionados[]" value="<?=$data_produto['IdProduto']?>" style="height: 20px; width: 20px;">
+                <input class="form-check-input add" id="add" type="checkbox" name="produtosSelecionados[]" value="<?=$data_produto['IdProduto']?>" style="height: 20px; width: 20px;">
                 <input type="hidden" name="quantidade_<?=$data_produto['IdProduto']?>" value="">
                 <input type="hidden" name="preco_<?=$data_produto['IdProduto']?>" value="<?=$data_produto['Preco']?>">
             </td>
             <td style="text-align:center">
-                <input type="number" min="1" max="<?=$data_produto["Quantidade"]?>" class="form-control" id="quantidade_<?=$data_produto['IdProduto']?>" name="quantidade_<?=$data_produto['IdProduto']?>" value="">
+                <input type="number" min="1" max="<?=$data_produto["Quantidade"]?>" class="form-control quantidade" id="quantidade_<?=$data_produto['IdProduto']?>" name="quantidade_<?=$data_produto['IdProduto']?>" value="">
             </td>
             <td>
-            <input type="text" class="form-control" id="desconto_<?=$data_produto['IdProduto']?>" name="desconto_<?=$data_produto['IdProduto']?>" value="">
+            <input type="text" class="form-control desconto" id="desconto_<?=$data_produto['IdProduto']?>" name="desconto_<?=$data_produto['IdProduto']?>" value="">
             </td>
         </tr>
         <?php } ?>
@@ -99,7 +103,7 @@ require_once("header.php");
         <tbody>
             <td style="text-align:center">
                 <div class="text-right">
-                    <a href="tabelaVenda.php"><button class="btn btn-danger" >Cancelar Compra</button></a>
+                <a href="tabelaVenda.php"><input type="button" class="btn btn-danger btn-tamanho" value="Cancelar Compra"></a>
                     <button class="btn btn-success" type="submit" name="enviar">Ir para o Carrinho</button>
                 </div>
             </td>
@@ -118,13 +122,21 @@ require_once("header.php");
     
 </form>  
 </div>
-
-  <script src="assets/js/venda.js"></script>
-
-  
+<script src="assets/js/venda.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    function configurarEventos(checkbox, quantidadeInput, descontoInput) {
+        // Habilitar/desabilitar inputs com base no estado do checkbox
+        checkbox.addEventListener('change', function () {
+            quantidadeInput.disabled = !checkbox.checked;
+            descontoInput.disabled = !checkbox.checked;
+        });
+    }
+});
+</script>
+<script src="assets/js/carrinho.js"></script>
 </body>
 
 <?php
-
 require_once("footer.php");
 ?>
