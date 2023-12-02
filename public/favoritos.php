@@ -41,8 +41,33 @@ function formatarTel($tel) {
     return "($parte1) $parte2-$parte3";
 }
 
-$conn = null;
+function selectUsuario($conn, $usuarioId){
+    try {
+      $query = "SELECT Nome FROM Usuario WHERE IdUsuario = :id";
+      $stmt_user = $conn->prepare($query);
+      $stmt_user->bindParam(":id", $usuarioId);
+      $stmt_user->execute();
 
+      return $stmt_user->fetchColumn();
+    } catch (PDOException $e) {
+        echo "Erro: " . $e->getMessage();
+        return null;
+    }
+  }
+
+  function selectCliente( $conn, $clienteId ){
+    try {
+      $query = "SELECT Nome FROM cliente WHERE IdCliente = :id";
+      $stmt_cliente = $conn->prepare($query);
+      $stmt_cliente->bindParam(":id", $clienteId);
+      $stmt_cliente->execute();
+
+      return $stmt_cliente->fetchColumn();
+    } catch (PDOException $e) {
+      echo "Erro: " . $e->getMessage();
+      return null;
+    }
+  }
 ?>
 
 <link rel="stylesheet" href="assets\css\tabela.css" />
@@ -68,6 +93,7 @@ $conn = null;
                 <th scope="col">Nome</th>
                 <th scope="col" style="width: 30%;">Preço</th>
                 <th scope="col" style="width: 15%;">Quantidade</th>
+                <th scope="col" style="width: 8%;">Remover</th>
             </tr>
         </thead>
         <tbody>
@@ -87,6 +113,21 @@ $conn = null;
                         </td>
                         <td scope="row" style="text-align:center">
                             <?php echo $data['Quantidade']; ?>
+                        </td>
+                        <td scope="row" style="text-align:center">
+                            <form action="produto-remove-favorite.php" method="post">
+                            <input type="hidden" name="id_produto" value="<?php echo $data['IdProduto']; ?>">
+                            <button type="submit" class="btn btn-danger" name="favorito">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 24 24">
+                                <style>
+                                    svg {
+                                    fill: #ffffff;
+                                    }
+                                </style>
+                                <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                </svg>
+                            </button>
+                            </form>
                         </td>
                     </tr>
                 <?php }
@@ -203,6 +244,7 @@ $conn = null;
                     <th scope="col" style="width: 20%;">IdFornecedor</th>
                     <th scope="col" style="width: 20%;">Data de entrega</th>
                     <th scope="col" style="width: 20%;">Situação</th>
+                    <th scope="col" style="width: 8%;">Remover</th>
                 </tr>
             </thead>
             <tbody>
@@ -225,6 +267,21 @@ $conn = null;
                             <td scope="row" style="text-align:center">
                                 <?php echo $data['Situacao']; ?>
                             </td>
+                            <td scope="row" style="text-align:center">
+                                <form action="pedido-remove-favorite.php" method="post">
+                                    <input type="hidden" name="id_pedido" value="<?php echo $data['IdPedido']; ?>">
+                                    <button type="submit" class="btn btn-danger" name="favorito">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 24 24">
+                                        <style>
+                                            svg {
+                                            fill: #ffffff;
+                                            }
+                                        </style>
+                                        <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                        </svg>
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                     <?php }
                 } ?>
@@ -245,6 +302,7 @@ $conn = null;
         <th scope="col" style="width: 10%;">Total</th>
         <th scope="col" style="width: 10%;">Usuário</th>
         <th scope="col" style="width: 10%;">Cliente</th>
+        <th scope="col" style="width: 8%;">Remover</th>
       </tr>
     </thead>
     <tbody>
@@ -257,6 +315,21 @@ $conn = null;
         <td style="text-align:center">R$<?=number_format($data['Total'], 2, ',', '.')?></td> 
         <td style="text-align:center"><?=selectUsuario($conn, $data['IdUsuario'])?></td>
         <td style="text-align:center"><?=selectCliente($conn, $data['IdCliente'])?></td> 
+        <td scope="row" style="text-align:center">
+            <form action="venda-remove-favorite.php" method="post">
+                <input type="hidden" name="id_venda" value="<?php echo $data['IdVenda']; ?>">
+                <button type="submit" class="btn btn-danger" name="favorito">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 24 24">
+                    <style>
+                        svg {
+                        fill: #ffffff;
+                        }
+                    </style>
+                    <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                </button>
+            </form>
+        </td>
       </tr> 
       <?php } }?>  
     </tbody>
@@ -265,4 +338,5 @@ $conn = null;
 
 </body>
 
-<?php require("footer.php"); ?>
+<?php require("footer.php"); 
+$conn = null;?>
