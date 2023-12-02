@@ -4,13 +4,17 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita6492a68232df78ad2a9400cb4aa5439
+class ComposerStaticInit6d49c7f7c063e3e3408cf5c9ede3f813
 {
     public static $files = array (
         '79f66bc0a1900f77abe4a9a299057a0a' => __DIR__ . '/..' . '/starkbank/ecdsa/src/ellipticcurve.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'U' => 
+        array (
+            'User\\FloraTrade\\' => 16,
+        ),
         'S' => 
         array (
             'SendGrid\\Stats\\' => 15,
@@ -23,6 +27,10 @@ class ComposerStaticInita6492a68232df78ad2a9400cb4aa5439
     );
 
     public static $prefixDirsPsr4 = array (
+        'User\\FloraTrade\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/public',
+        ),
         'SendGrid\\Stats\\' => 
         array (
             0 => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/stats',
@@ -59,9 +67,9 @@ class ComposerStaticInita6492a68232df78ad2a9400cb4aa5439
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita6492a68232df78ad2a9400cb4aa5439::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita6492a68232df78ad2a9400cb4aa5439::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInita6492a68232df78ad2a9400cb4aa5439::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit6d49c7f7c063e3e3408cf5c9ede3f813::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit6d49c7f7c063e3e3408cf5c9ede3f813::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit6d49c7f7c063e3e3408cf5c9ede3f813::$classMap;
 
         }, null, ClassLoader::class);
     }

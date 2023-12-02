@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
-        'name' => 'user/flora-trade-main',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'name' => 'user/flora-trade',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'efe85ce750753f6e6fa34afe8efda869d1377f38',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -20,9 +20,9 @@
             'dev_requirement' => false,
         ),
         'sendgrid/sendgrid' => array(
-            'pretty_version' => '8.0.1',
-            'version' => '8.0.1.0',
-            'reference' => '285381257100b73aa50d8d70f0bcfb1f48b63747',
+            'pretty_version' => '8.1.0',
+            'version' => '8.1.0.0',
+            'reference' => '550c3f606750911a0d8a8d58b7e20b436a2a6180',
             'type' => 'library',
             'install_path' => __DIR__ . '/../sendgrid/sendgrid',
             'aliases' => array(),
@@ -43,10 +43,10 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'user/flora-trade-main' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+        'user/flora-trade' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'efe85ce750753f6e6fa34afe8efda869d1377f38',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

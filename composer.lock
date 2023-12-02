@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "93f7e6a545b6dd6cfd5189f5a62bde24",
+    "content-hash": "8ffd1d75042903587677f0be47285fde",
     "packages": [
         {
             "name": "sendgrid/php-http-client",
@@ -72,16 +72,16 @@
         },
         {
             "name": "sendgrid/sendgrid",
-            "version": "8.0.1",
+            "version": "8.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sendgrid/sendgrid-php.git",
-                "reference": "285381257100b73aa50d8d70f0bcfb1f48b63747"
+                "reference": "550c3f606750911a0d8a8d58b7e20b436a2a6180"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/285381257100b73aa50d8d70f0bcfb1f48b63747",
-                "reference": "285381257100b73aa50d8d70f0bcfb1f48b63747",
+                "url": "https://api.github.com/repos/sendgrid/sendgrid-php/zipball/550c3f606750911a0d8a8d58b7e20b436a2a6180",
+                "reference": "550c3f606750911a0d8a8d58b7e20b436a2a6180",
                 "shasum": ""
             },
             "require": {
@@ -131,9 +131,9 @@
                 "twilio sendgrid"
             ],
             "support": {
-                "source": "https://github.com/sendgrid/sendgrid-php/tree/8.0.1"
+                "source": "https://github.com/sendgrid/sendgrid-php/tree/8.1.0"
             },
-            "time": "2022-08-10T18:37:45+00:00"
+            "time": "2023-12-01T05:16:22+00:00"
         },
         {
             "name": "starkbank/ecdsa",

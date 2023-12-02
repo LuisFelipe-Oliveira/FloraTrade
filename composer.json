@@ -1,6 +1,11 @@
 {
-    "name": "user/flora-trade-main",
+    "name": "user/flora-trade",
+    "autoload": {
+        "psr-4": {
+            "User\\FloraTrade\\": "public/"
+        }
+    },
     "require": {
-        "sendgrid/sendgrid": "^8.0"
+        "sendgrid/sendgrid": "^8.1"
     }
 }
