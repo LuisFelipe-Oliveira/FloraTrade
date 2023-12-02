@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../login.php?msg={$msg}&msgerror={$msgerror}");
             exit();
         } else {
-            // Falha na atualização da senha, redirecione para uma página de erro
+            // Falha na atualização da senha
             $msg = "update error";
             $msgerror = "";
             header("Location: change-password.php?msg={$msg}&msgerror={$msgerror}");
