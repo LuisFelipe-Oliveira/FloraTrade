@@ -8,10 +8,6 @@
     --Color-White: #fff;
 }
 
-* {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-}
 
 
 #svg-top {
@@ -55,6 +51,16 @@ body{
     align-items: center;
     /* margin: 0 auto; */
     margin-bottom: 3rem;
+}
+
+.content2 h1,
+.content2 h2,
+.content2 h4,
+.content2 h5,
+.content2 p,
+.content2 button{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 
 .btn-slider {

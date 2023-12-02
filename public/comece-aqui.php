@@ -11,7 +11,7 @@ require_once("header.php")
 
 <body>
     <div class="content2">
-        <div">
+        <div>
             <img id="svg-top" src="images/bg-top.svg" alt="">
             <img id="svg-bottom" src="images/bg-bottom.svg" alt="">
             <div class="top">
