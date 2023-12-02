@@ -139,6 +139,9 @@ session_start();
                         <a href="tabelaVenda.php">
                             <li>Vendas</li>
                         </a>
+                        <a href="favoritos.php">
+                            <li>Favoritos</li>
+                        </a>
                     </ul>
                 </div>
             </div>
@@ -208,15 +211,23 @@ session_start();
         } else if ($msg == 'invalid situacao') {
             echo "<div class='alert alert-danger' role='alert'>Situação do fornecedor é inativo! {$msgerror}</div>";
         } else if ($msg == 'find e-mail error') {
-            "<div class='alert alert-danger' role='alert'>E-mail não cadastrado no banco! {$msgerror}</div>";
+            echo "<div class='alert alert-danger' role='alert'>E-mail não cadastrado no banco! {$msgerror}</div>";
         } else if ($msg == 'token error') {
-            "<div class='alert alert-danger' role='alert'>Não foi possível enviar o e-mail. Tente novamente. {$msgerror}</div>";
+            echo "<div class='alert alert-danger' role='alert'>Não foi possível enviar o e-mail. Tente novamente. {$msgerror}</div>";
         } else if ($msg == 'sending e-mail error') {
-            "<div class='alert alert-danger' role='alert'>Não foi possível enviar o e-mail. Tente novamente. {$msgerror}</div>";
+            echo "<div class='alert alert-danger' role='alert'>Não foi possível enviar o e-mail. Tente novamente. {$msgerror}</div>";
         } else if ($msg == 'update error') {
-            "<div class='alert alert-danger' role='alert'>Não foi possível atualizar a senha. Tente novamente. {$msgerror}</div>";
+            echo "<div class='alert alert-danger' role='alert'>Não foi possível atualizar a senha. Tente novamente. {$msgerror}</div>";
         } else if ($msg == 'different password') {
-            "<div class='alert alert-danger' role='alert'>As senhas precisam ser iguais! {$msgerror}</div>";
+            echo "<div class='alert alert-danger' role='alert'>As senhas precisam ser iguais! {$msgerror}</div>";
+        } else if ($msg == 'new favorite') {
+            echo "<div class='alert alert-success' role='alert'>Adicionado aos favoritos! {$msgerror}</div>";
+        } else if ($msg == 'favorite error') {
+            echo "<div class='alert alert-danger' role='alert'>Falha ao adicionar como favorito! {$msgerror}</div>";
+        } else if ($msg == 'remove favorite') {
+            echo "<div class='alert alert-success' role='alert'>Registro removido como favorito! {$msgerror}</div>";
+        } else if ($msg == 'remove favorite error') {
+            echo "<div class='alert alert-success' role='alert'>Falha ao remover como favorito! {$msgerror}</div>";
         } else {
             echo "<div class='alert alert-warning' role='alert'>{$msgerror}</div>";
         }

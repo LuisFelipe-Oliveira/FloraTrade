@@ -8,9 +8,10 @@ CREATE TABLE
     Cliente (
         IdCliente INT NOT NULL AUTO_INCREMENT,
         Nome VARCHAR(255),
-        CPF INT,
+        CPF VARCHAR(11),
         Telefone VARCHAR(15),
         Email VARCHAR(70),
+        favorito VARCHAR(1),
         PRIMARY KEY (IdCliente)
     );
 
@@ -34,6 +35,7 @@ CREATE TABLE
         Nome VARCHAR(45),
         Preco DOUBLE,
         Quantidade INT,
+        favorito VARCHAR(1),
         PRIMARY KEY (IdProduto)
     );
 
@@ -44,6 +46,7 @@ CREATE TABLE
         Total DOUBLE,
         IdUsuario INT,
         IdCliente INT,
+        favorito VARCHAR(1),
         PRIMARY KEY (IdVenda),
         FOREIGN KEY (IdUsuario) REFERENCES Usuario (IdUsuario),
         FOREIGN KEY (IdCliente) REFERENCES Cliente (IdCliente)
@@ -72,6 +75,7 @@ CREATE TABLE
         DataCadastro DATETIME DEFAULT CURRENT_TIMESTAMP(),
         Situacao VARCHAR(10),
         CNPJ VARCHAR(14),
+        favorito VARCHAR(1),
         PRIMARY KEY (IdFornecedor)
     );
 
@@ -82,6 +86,7 @@ CREATE TABLE
         IdFornecedor INT,
         DataEntrega DATETIME DEFAULT CURRENT_TIMESTAMP(),
         Situacao VARCHAR(45),
+        favorito VARCHAR(1),
         PRIMARY KEY(IdPedido),
         FOREIGN KEY (IdProduto) REFERENCES Produto (IdProduto),
         FOREIGN KEY (IdFornecedor) REFERENCES Fornecedor (IdFornecedor)
