@@ -207,6 +207,16 @@ session_start();
             echo "<div class='alert alert-danger' role='alert'>Informe um ID de fornecedor ou produto existente! {$msgerror}</div>";
         } else if ($msg == 'invalid situacao') {
             echo "<div class='alert alert-danger' role='alert'>Situação do fornecedor é inativo! {$msgerror}</div>";
+        } else if ($msg == 'find e-mail error') {
+            "<div class='alert alert-danger' role='alert'>E-mail não cadastrado no banco! {$msgerror}</div>";
+        } else if ($msg == 'token error') {
+            "<div class='alert alert-danger' role='alert'>Não foi possível enviar o e-mail. Tente novamente. {$msgerror}</div>";
+        } else if ($msg == 'sending e-mail error') {
+            "<div class='alert alert-danger' role='alert'>Não foi possível enviar o e-mail. Tente novamente. {$msgerror}</div>";
+        } else if ($msg == 'update error') {
+            "<div class='alert alert-danger' role='alert'>Não foi possível atualizar a senha. Tente novamente. {$msgerror}</div>";
+        } else if ($msg == 'different password') {
+            "<div class='alert alert-danger' role='alert'>As senhas precisam ser iguais! {$msgerror}</div>";
         } else {
             echo "<div class='alert alert-warning' role='alert'>{$msgerror}</div>";
         }

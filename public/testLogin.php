@@ -23,6 +23,7 @@ if (isset($_POST['submit']) && !empty($_POST['Email']) && !empty($_POST['Senha']
         unset($_SESSION['Email']);
         unset($_SESSION['Senha']);
         $msg = "invalido";
+        $msgerror = "";
         header("Location: login.php?msg={$msg}&msgerror={$msgerror}");
     } else {
             $_SESSION["loggedin"] = true;

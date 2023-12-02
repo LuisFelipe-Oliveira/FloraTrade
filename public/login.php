@@ -153,6 +153,9 @@ if (isset($_POST["enviar"])) {
                     if ($msg == 'invalido') {
                         echo "<div class='aviso' role='alert'>E-mail ou senha inválidos!</div>";
                     }
+                    if ($msg == 'changed password') {
+                        echo "<div class='avisoSucesso' role='alert'>Senha atualizada com sucesso!</div>";
+                    }
                 }
                 ?>
                 <h1>Entre</h1>
