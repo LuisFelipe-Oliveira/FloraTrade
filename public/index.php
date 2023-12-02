@@ -15,7 +15,7 @@ require_once("header.php");
       agilizando e organizando seu estoque e suas vendas.
     </h5>
     <div class="btn-card">
-      <button id="btn-comece"><a href="">COMECE AQUI</a></button>
+      <button id="btn-comece"><a href="comece-aqui.php">COMECE AQUI</a></button>
       <button id="btn-saiba"><a href="saibaMais.php">SAIBA MAIS</a></button>
     </div>
   </div>

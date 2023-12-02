@@ -1,0 +1,230 @@
+:root {
+    --Color-Primary: #528265;
+    --color-green1: #3a5043;
+    --Very-Light-Grayish-Blue: hsl(240, 78%, 98%);
+    --Light-Grayish-Blue: hsl(234, 14%, 74%);
+    --Grayish-Blue: hsl(233, 13%, 49%);
+    --Dark-Grayish-Blue: #384552;
+    --Color-White: #fff;
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+
+#svg-top {
+    position: absolute;
+    right: 0;
+    top: 0;
+    max-height: 700px;
+    z-index: -1;
+}
+
+#svg-bottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+
+.top {
+    margin-top: 3rem;
+    text-align: center;
+    /* display: flex;  */
+    margin-bottom: 2rem;
+}
+
+.top h2 {
+    color: var(--Dark-Grayish-Blue);
+}
+
+.top p {
+    color: var(--Light-Grayish-Blue)
+}
+
+body{
+    background-color: var(--Very-Light-Grayish-Blue);
+}
+
+.content2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 0 auto; */
+    margin-bottom: 3rem;
+}
+
+.btn-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--Color-Primary);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:hover{
+    background-color: var(--color-green1);
+}
+
+input:checked+.slider:hover{
+    background-color: var(--color-green1);
+}
+
+/* .slider:hover{
+    background-image: none;
+    transition: .4s;
+    background-color: var(--Light-Grayish-Blue);
+  } */
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: var(--Color-Primary);
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-cards {
+    /* border: 2px solid black; */
+    padding: 1.9rem 2rem 3rem 2rem;
+    text-align: center;
+    background-color: var(--Color-White);
+    width: 22rem;
+    /* max-height: 24rem; */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    color: var(--Dark-Grayish-Blue);
+}
+
+#left-card {
+    border-radius: 10px 0 0 10px;
+}
+
+#right-card {
+    border-radius: 0 10px 10px 0;
+}
+
+.center-card {
+    border-radius: 10px;
+    padding: 2.3rem 2.2rem 3.9rem 2.5rem;
+    text-align: center;
+    color: var(--Color-White);
+    background-color: var(--Color-Primary);
+    width: 25rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.side-cards h1 {
+    font-size: 2.9rem;
+    display: flex;
+    align-self: center;
+    text-align: center;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.center-card h1 {
+    font-size: 3.4rem;
+    display: flex;
+    align-self: center;
+    text-align: center;
+    justify-content: center;
+    margin: 1rem;
+}
+
+#dollar {
+    font-size: 1.7rem;
+    align-self: center;
+    margin: 5px;
+}
+
+.center-hr{
+    border: solid 0.1px hsl(236, 72%, 79%);
+}
+.hr{
+    border: solid 0.1px var(--Light-Grayish-Blue);
+}
+
+.center-btn-card {
+    background-color: var(--Color-White);
+    border: none;
+    color: var(--Color-Primary);
+    letter-spacing: 1px;
+    width: 100%;
+    border-radius: 7px;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    cursor: pointer;
+}
+
+.center-btn-card:hover {
+    background-color: var(--Very-Light-Grayish-Blue);
+}
+
+.side-btn-card {
+    background-color: var(--Color-Primary);
+    border: none;
+    color: var(--Color-White);
+    letter-spacing: 1px;
+    width: 100%;
+    border-radius: 7px;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    cursor: pointer;
+}
+
+.side-btn-card:hover{
+    background-color: var(--color-green1);
+    transition: 0.2s;
+}
+
+.side-cards .esconder{
+    display: none;
+}
+
+.center-card .esconder{
+    display: none;
+}
