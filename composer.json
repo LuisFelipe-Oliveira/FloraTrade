@@ -6,6 +6,7 @@
         }
     },
     "require": {
-        "sendgrid/sendgrid": "^8.1"
-    }
+        "sendgrid/sendgrid": "^8.1",
+        "starkbank/ecdsa": "^1.0"
+    } 
 }
