@@ -16,9 +16,6 @@ if (isset($_POST['submit']) && !empty($_POST['Email']) && !empty($_POST['Senha']
 
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    //error_log($result);
-    //error_log(password_verify($senha, $result['Senha']));
-
     if (!$result || !password_verify($senha, $result['SENHA'])) {
         unset($_SESSION['Email']);
         unset($_SESSION['Senha']);

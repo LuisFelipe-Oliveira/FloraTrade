@@ -65,6 +65,9 @@ session_start();
                                 <a onclick="error()">
                                     <li>Pedidos</li>
                                 </a>
+                                <a onclick="error()">
+                                    <li>Favoritos</li>
+                                </a>
                             </ul>
                         </div>
                     </div>
