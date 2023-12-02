@@ -136,7 +136,7 @@ require("header.php");
                                         </svg></button></a>
                                 <form action="pedido-favorite.php" method="post">
                                     <input type="hidden" name="id_pedido" value="<?php echo $data['IdPedido']; ?>">
-                                    <button type="submit" class="btn btn-warning" name="favorito">
+                                    <button type="submit" class="btn btn-warning" style="margin-top: 5px;" name="favorito">
                                         <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 24 24">
                                         <style>
                                             svg {

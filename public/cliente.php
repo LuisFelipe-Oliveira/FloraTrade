@@ -129,7 +129,7 @@ $conn = null;
         </svg></button></a>
         <form action="cliente-favorite.php" method="post">
               <input type="hidden" name="id_cliente" value="<?php echo $data['IdCliente']; ?>">
-              <button type="submit" class="btn btn-warning" name="favorito">
+              <button type="submit" class="btn btn-warning" style="margin-top: 5px;" name="favorito">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 24 24">
                   <style>
                     svg {
