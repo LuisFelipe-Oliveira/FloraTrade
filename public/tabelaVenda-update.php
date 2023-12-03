@@ -1,80 +1,87 @@
 <?php
 
-require("header.php");
 
-require('config/connect.php');
+
+
 
   if(isset($_GET['id'])){
-    $row = "";
-    $idVenda = $_GET['id'];
-    $venda_query = "SELECT * FROM Venda where idVenda = :id";
-    $stmt_venda = $conn->prepare($venda_query);
-    $stmt_venda->bindParam(":id", $idVenda, PDO::PARAM_STR);
-    $stmt_venda->execute();
 
-    if($stmt_venda->rowCount() > 0){
-      $data_venda = $stmt_venda->fetch(PDO::FETCH_ASSOC);
+    if(isset($_POST['enviar'])){
+
+      require('config/connect.php');
+
+      $dataVenda = $_POST['DataVenda'];
+      $total = preg_replace('/,/', '.', $_POST['Total']);
+      $idUser = $_POST['users'];
+      $idCliente = $_POST['clients'];
+
+      $update_query = "UPDATE Venda SET DataVenda = :dv, Total = :total, IdUsuario = :iduser, IdCliente = :idcliente WHERE IdVenda = :id";
+
+      $update_stmt = $conn->prepare($update_query);
+
+      $update_stmt->bindParam(":dv", $dataVenda);
+      $update_stmt->bindParam(":total", $total);
+      $update_stmt->bindParam(":iduser", $idUser);
+      $update_stmt->bindParam(":idcliente", $idCliente); // Corrigido para :idcliente
+      $update_stmt->bindParam(":id", $_POST['idvenda']);
+      $update_stmt->execute();
+
+      if ($update_stmt->rowCount() > 0) {
+        $msg = "update success";
+        $msgerror = "";
+      } else {
+          $msg = "";
+          $msgerror = $update_stmt->errorInfo()[2];
+      }
+      $conn = null;
+
+      header("Location: tabelaVenda.php?msg={$msg}&msgerror={$msgerror}");
     }
+    else {
 
-    $mysql_query = "SELECT * FROM itemvenda WHERE idVenda = :id";
-    $stmt_itemVenda = $conn->prepare($mysql_query);
-    $stmt_itemVenda->bindParam(":id", $idVenda, PDO::PARAM_STR);
-    $stmt_itemVenda->execute();
+      require('config/connect.php');
 
-    if($stmt_itemVenda->rowCount() > 0){
-      $data_itemVenda = $stmt_itemVenda->fetchAll(PDO::FETCH_ASSOC);
-      //print_r($data_itemVenda);
-    } else {
-      $row = "<tr>
-                <td colspan='7'>Nenhum item venda cadastrado.</td>
-              </tr>";
+      $idVenda = $_GET['id'];
+      $venda_query = "SELECT * FROM Venda where idVenda = :id";
+      $stmt_venda = $conn->prepare($venda_query);
+      $stmt_venda->bindParam(":id", $idVenda, PDO::PARAM_STR);
+      $stmt_venda->execute();
 
+      if($stmt_venda->rowCount() > 0){
+        $data_venda = $stmt_venda->fetch(PDO::FETCH_ASSOC);
+      }
     }
   } 
   
+  
 
-  function selectUsuario($conn, $usuarioId){
+  function selectUsuario($conn){
     try {
-      $query = "SELECT Nome FROM Usuario WHERE IdUsuario = :id";
+      $query = "SELECT Nome,IdUsuario as Id FROM Usuario";
       $stmt_user = $conn->prepare($query);
-      $stmt_user->bindParam(":id", $usuarioId);
       $stmt_user->execute();
 
-      return $stmt_user->fetchColumn();
+      return $stmt_user->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         echo "Erro: " . $e->getMessage();
         return null;
     }
   }
 
-  function selectCliente( $conn, $clienteId ){
+  function selectCliente( $conn){
     try {
-      $query = "SELECT Nome FROM cliente WHERE IdCliente = :id";
+      $query = "SELECT Nome,IdCliente as Id FROM cliente";
       $stmt_cliente = $conn->prepare($query);
-      $stmt_cliente->bindParam(":id", $clienteId);
       $stmt_cliente->execute();
-
-      return $stmt_cliente->fetchColumn();
+      return $stmt_cliente->fetchAll(PDO::FETCH_ASSOC);
+      
     } catch (PDOException $e) {
       echo "Erro: " . $e->getMessage();
       return null;
     }
   }
 
-  function selectProduto($conn, $prodId){
-    try {
-      $query = "SELECT Nome FROM Produto WHERE IdProduto = :id";
-      $stmt_cliente = $conn->prepare($query);
-      $stmt_cliente->bindParam(":id", $prodId);
-      $stmt_cliente->execute();
-
-      return $stmt_cliente->fetchColumn();
-    } catch (PDOException $e) {
-      echo "Erro: " . $e->getMessage();
-      return null;
-    }
-  }
-
+  require("header.php");
 ?>
 
 <link rel="stylesheet" href="assets\css\tabela.css"/>
@@ -118,10 +125,10 @@ require('config/connect.php');
     </style>
 <div class="container">
   <h2>Informações da Venda <label for="IdVenda">#<?=$data_venda['IdVenda']?></label></h2>
-
+  <br>
   <div class="form-container">
-    <form method="post" action="processar_atualizacao.php">
-        
+    <form method="post">
+        <input type="hidden" name="idvenda" value="<?=$data_venda['IdVenda']?>">
 
         <div class="form-group">
             <label for="DataVenda">Data de Venda:</label>
@@ -135,23 +142,40 @@ require('config/connect.php');
 
         <div class="form-group">
             <label for="Usuario">Usuário:</label>
-            <input type="text" name="usuario" id="usuario" value=<?=selectUsuario($conn, $data_venda['IdUsuario'])?> >
+              <select name="users" id="users">
+                <?php $users = selectUsuario($conn);
+                    //print_r($users);
+                  foreach($users as $user){
+                ?>
+                <option value="<?=$user['Id']?>" <?=$select = ($data_venda['IdUsuario'] == $user['Id']) ? "selected" : ""?>><?=$user['Nome']?></option>
+                <?php 
+                  } 
+                ?>
+              </select>
         </div>
 
         <div class="form-group">
             <label for="Cliente">Cliente:</label>
-            <input type="text" name="cliente" id="cliente" value="<?=selectCliente($conn, $data_venda['IdCliente'])?>">
+            <select name="clients" id="clients">
+                <?php $clients = selectCliente($conn);
+                  foreach($clients as $client){
+                ?>
+                <option value="<?=$client['Id']?>"<?=$select = ($data_venda['IdCliente'] == $client['Id']) ? "selected" : ""?>><?=$client['Nome']?></option>
+                <?php 
+                  } 
+                ?>
+              </select>
         </div>
 
         <div class="form-group">
-            <button type="submit">Atualizar</button>
+            <button type="submit" name="enviar">Atualizar</button>
         </div>
     </form>
 </div>
 <br>
   
   <div class="buttons-tabelas">
-    <a href="tabelaVenda.php"><button type="button" class="btn btn-success btn-tamanho">Retornar</button></a>
+    <a href="tabelaVenda.php"><button type="button" class="btn btn-danger btn-tamanho">Cancelar</button></a>
   </div>
 </div>
 

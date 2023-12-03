@@ -112,29 +112,22 @@ require_once("header.php");
 
     <input type="hidden" name="idUsuario" value="<?=$_SESSION['loggedin']?>">
     <input type="hidden" name="idCliente" id="idClienteInput" value="">
-
-<!--     <input type="hidden" name="total" id="totalInput">
-    
-    <input type="hidden" name="quantidade" id="quantidadeInput" value="">
-    <input type="hidden" name="valorUnitario" id="valorUnitarioInput" value="">
-    <input type="hidden" name="desconto" id="descontoInput" value="">
-    <input type="hidden" name="subtotal" id="subtotalInput" value=""> -->
     
 </form>  
 </div>
-<script src="assets/js/venda.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+/* document.addEventListener('DOMContentLoaded', function () {
     function configurarEventos(checkbox, quantidadeInput, descontoInput) {
-        // Habilitar/desabilitar inputs com base no estado do checkbox
         checkbox.addEventListener('change', function () {
             quantidadeInput.disabled = !checkbox.checked;
             descontoInput.disabled = !checkbox.checked;
         });
     }
-});
+}); */
 </script>
-<script src="assets/js/carrinho.js"></script>
+<script src="assets/js/carrinho.js">
+    /* configurarEventos(checkbox, quantidadeInput, descontoInput); */
+</script>
 </body>
 
 <?php
