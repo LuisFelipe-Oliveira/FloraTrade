@@ -1,5 +1,12 @@
 <?php
 
+require("header.php");
+
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    echo '<script>window.location.href = "login.php"</script>';
+    exit;
+  }
+
 require_once('config/connect.php');
 
 if (isset($_GET['busca'])) {
@@ -10,7 +17,6 @@ if (isset($_GET['busca'])) {
     $sql_code = "SELECT * FROM Produto ORDER BY IdProduto";
     $sql_query = $conn->query($sql_code) or die("ERRO ao consultar! " . $conn->errorInfo());
 }
-require_once("header.php");
 ?>
 
 <link rel="stylesheet" href="assets\css\tabela.css" />

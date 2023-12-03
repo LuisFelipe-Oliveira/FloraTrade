@@ -1,5 +1,12 @@
 <?php
 
+require("header.php");
+
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    echo '<script>window.location.href = "login.php"</script>';
+    exit;
+  }
+
 require('config/connect.php');
 
 if (isset($_GET['busca'])) {
@@ -27,8 +34,6 @@ if (isset($_GET['busca'])) {
 }
 
 $conn = null;
-
-require("header.php");
 ?>
 
 <link rel="stylesheet" href="assets\css\tabela.css" />

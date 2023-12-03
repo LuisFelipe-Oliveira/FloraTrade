@@ -1,5 +1,10 @@
 <?php
 require_once("header.php");
+
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    echo '<script>window.location.href = "login.php"</script>';
+    exit;
+  }
 ?>
 <link rel="stylesheet" href="assets\css\saibaMais.css">
 <link rel="stylesheet" href="">

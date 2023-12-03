@@ -18,7 +18,14 @@
 
 <body>
     <section>
-        <?php require_once "header.php"; ?>
+        <?php  
+        require("header.php");
+
+        if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+            echo '<script>window.location.href = "login.php"</script>';
+            exit;
+          }
+          ?>
         <hr class="hr-green">
     </section>
     <div class="container1">

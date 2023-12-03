@@ -2,6 +2,11 @@
 
 require("header.php");
 
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    echo '<script>window.location.href = "login.php"</script>';
+    exit;
+  }
+
 require('config/connect.php');
 
 if (isset($_GET['busca'])) {

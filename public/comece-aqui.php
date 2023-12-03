@@ -1,5 +1,11 @@
 <?php
-require_once("header.php")
+require_once("header.php");
+
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    echo '<script>window.location.href = "login.php"</script>';
+    exit;
+  }
+
     ?>
 <!DOCTYPE html>
 <link rel="stylesheet" href="assets/css/comece-aqui.css">
