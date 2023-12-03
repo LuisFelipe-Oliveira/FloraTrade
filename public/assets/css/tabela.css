@@ -23,3 +23,8 @@
   justify-content: right;
   gap: 1rem;
 }
+
+.Produto {
+  text-decoration: none;
+  color: black;
+}
