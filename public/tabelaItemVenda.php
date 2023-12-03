@@ -195,6 +195,19 @@ require('config/connect.php');
   <div class="buttons-tabelas">
     <a href="tabelaVenda.php"><button type="button" class="btn btn-success btn-tamanho">Retornar</button></a>
   </div>
+  <form action="venda-favorite.php" method="post" style="display: flex; justify-content: end;">
+      <input type="hidden" name="id_venda" value="<?php echo $data_iv['IdVenda']; ?>">
+      <button type="submit" class="btn btn-warning" style="margin-top: 5px;" name="favorito">
+        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 24 24">
+          <style>
+            svg {
+              fill: #ffffff;
+            }
+          </style>
+          <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+        </svg>
+      </button>
+    </form>
 </div>
 
 <?php require("footer.php"); $conn = null;?>
