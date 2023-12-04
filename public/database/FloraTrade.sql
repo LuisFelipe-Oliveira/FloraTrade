@@ -26,6 +26,7 @@ CREATE TABLE
         DataCriacao DATETIME DEFAULT CURRENT_TIMESTAMP(),
         token VARCHAR(255),
         timetoken int,
+        favorito VARCHAR(1),
         PRIMARY KEY (IdUsuario)
     );
 

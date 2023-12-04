@@ -121,14 +121,11 @@ session_start();
                                 </ul>
                             </div>
                         </div>
-                        <a href="">
+                        <a href="tabelaUsuario.php">
                             <li>Usuários</li>
                         </a>
                         <a href="tabelaProduto.php">
                             <li>Produtos</li>
-                        </a>
-                        <a href="">
-                            <li>Estoque</li>
                         </a>
                         <a href="cliente.php">
                             <li>Clientes</li>

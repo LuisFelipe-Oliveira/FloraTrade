@@ -234,3 +234,40 @@ input:checked+.slider:before {
 .center-card .esconder{
     display: none;
 }
+
+@media (max-width: 1000px) {
+    .cards{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+@media (max-width: 420px){
+    .side-cards {
+        padding: 1.9rem 2rem 3rem 2rem;
+        text-align: center;
+        background-color: var(--Color-White);
+        width: 20rem;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        color: var(--Dark-Grayish-Blue);
+    }
+
+    .center-card {
+        border-radius: 10px;
+        padding: 2.3rem 2.2rem 3.9rem 2.5rem;
+        text-align: center;
+        color: var(--Color-White);
+        background-color: var(--Color-Primary);
+        width: 22rem;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    }
+
+    .center-card h1{
+        font-size: 2.7rem;
+    }
+
+    .side-cards h1{
+        font-size: 2.4rem;
+    }
+}

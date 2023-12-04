@@ -1,0 +1,143 @@
+<?php
+
+require("header.php");
+
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+  echo '<script>window.location.href = "login.php"</script>';
+  exit;
+}
+
+require('config/connect.php');
+
+if (isset($_GET['busca'])) {
+  $row = "";
+  $pesquisa = '%' . $_GET['busca'] . '%';
+  $sql_code = "SELECT * FROM Usuario WHERE Nome LIKE :pesquisa ORDER BY IdUsuario";
+  $stmt = $conn->prepare($sql_code);
+  $stmt->bindParam(':pesquisa', $pesquisa, PDO::PARAM_STR);
+  $stmt->execute();
+  $sql_query = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  if (count($sql_query) === 0) {
+    $row = "<tr>
+            <td colspan='6'>Sem correspondências.</td>
+          </tr>";
+  }
+} else {
+  $row = "";
+  $sql_code = "SELECT * FROM Usuario ORDER BY IdUsuario";
+  $sql_query = $conn->query($sql_code)->fetchAll(PDO::FETCH_ASSOC);
+  if (count($sql_query) === 0) {
+    $row = "<tr>
+            <td colspan='6'>Nenhum Usuario cadastrado.</td>
+          </tr>";
+  }
+}
+
+$conn = null;
+
+?>
+
+<link rel="stylesheet" href="assets\css\tabela.css" />
+
+<body>
+
+  <div class="container">
+    <h2>Usuários</h2>
+    <p>Listagem de Usuários cadastrados.</p>
+
+    <div class="row centralizar">
+      <div class="col-md-11">
+        <form action="" method="get" class="mb-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Buscar usuário" name="busca" required>
+            <div class="input-group-append">
+              <button class="btn btn-primary ajuste-margem" type="submit"><svg xmlns="http://www.w3.org/2000/svg"
+                  height="1em" viewBox="0 0 512 512">
+                  <style>
+                    svg {
+                      fill: #fff
+                    }
+                  </style>
+                  <path
+                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+                </svg></button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-1">
+        <form action="" method="get">
+          <div class="input-group-append">
+            <button class="btn btn-secondary" type="submit"><svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                viewBox="0 0 512 512">
+                <path
+                  d="M142.9 142.9c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5c0 0 0 0 0 0H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1C73.2 122 55.6 150.7 44.8 181.4c-5.9 16.7 2.9 34.9 19.5 40.8s34.9-2.9 40.8-19.5c7.7-21.8 20.2-42.3 37.8-59.8zM16 312v7.6 .7V440c0 9.7 5.8 18.5 14.8 22.2s19.3 1.7 26.2-5.2l41.6-41.6c87.6 86.5 228.7 86.2 315.8-1c24.4-24.4 42.1-53.1 52.9-83.7c5.9-16.7-2.9-34.9-19.5-40.8s-34.9 2.9-40.8 19.5c-7.7 21.8-20.2 42.3-37.8 59.8c-62.2 62.2-162.7 62.5-225.3 1L185 329c6.9-6.9 8.9-17.2 5.2-26.2s-12.5-14.8-22.2-14.8H48.4h-.7H40c-13.3 0-24 10.7-24 24z" />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <hr>
+    <!-- <div class="float-right p-1">
+    <a href="usuario-insert.php"><button type="button" class="btn btn-success">Novo usuario</button></a>
+  </div> -->
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr class="table-success" style="text-align:center">
+          <th scope="col" style="width: 5%;">#</th>
+          <th scope="col" style="width: 15%;">Foto</th>
+          <th scope="col">Nome</th>
+          <th scope="col" style="width: 20%;">E-mail</th>
+          <th scope="col" style="width: 20%;">Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        if ($row !== "") {
+          echo $row;
+        } else {
+          foreach ($sql_query as $data) { ?>
+            <tr>
+              <th scope="row" style="text-align:center">
+                <?php echo $data['IdUsuario']; ?>
+              </th>
+              <th scope="row" style="text-align:center"><img class="imgPerfilTabela"
+                  src="<?php echo $data['FotoPerfil']; ?>" alt=""></th>
+              <td scope="row" style="text-align:center">
+                <?php echo $data['Nome']; ?>
+              </td>
+              <td scope="row" style="text-align:center">
+                <?php echo $data['Email']; ?>
+              </td>
+              <td style="text-align:center">
+                <a href="usuario-delete.php?id=<?php echo $data['IdUsuario']; ?>">
+                  <button type="button" class="btn btn-danger" style="margin-left: 5px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                      <style>
+                        svg {
+                          fill: #ffffff
+                        }
+                      </style>
+                      <path
+                        d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                    </svg></button></a>
+                <a href="usuario-registro.php?id=<?php echo $data['IdUsuario']; ?>">
+                  <button type="button" class="btn btn-info" style="margin-left: 5px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                      <path
+                        d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z" />
+                    </svg>
+                  </button>
+                </a>
+              </td>
+            </tr>
+          <?php }
+        } ?>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+<?php require("footer.php"); ?>
